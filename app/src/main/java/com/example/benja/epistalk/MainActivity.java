@@ -5,9 +5,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -26,10 +32,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Add favorites", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+        connectServer();
     }
 
     @Override
@@ -56,4 +63,95 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void connectServer()
+    {
+        try
+        {
+            String registrationUrl = "ns-server.epita.fr";
+            URL url = new URL(registrationUrl);
+            URLConnection connection = url.openConnection();
+            HttpURLConnection httpConnection = (HttpURLConnection) connection;
+            int responseCode = httpConnection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK)
+            {
+                Log.d("EpiStalk", "Registration success");
+            }
+            else
+            {
+                Log.w("EpiStalk", "Registration failed for: " + registrationUrl);
+            }
+            Log.d("MyApp", "wololo");
+            System.out.println("walala");
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /*
+
+    NS_SERVER = 'ns-server.epita.fr'
+    NS_PORT = 4242
+
+    ING1_PROMO = 'epita_2018'
+
+    class User(object):
+      def __init__(self, line):
+        fields = line.split()
+        self.login = fields[1]
+        self.ip = fields[2]
+        self.promo = fields[9]
+
+      @property
+      def sm(self):
+        if self.ip.startswith('10.41'):
+          return "sm random"
+        else:
+          return None
+
+      def __cmp__(self, other):
+        return cmp(self.login, other.login)
+
+      def __hash__(self):
+        return hash(self.login)
+
+    def connect_to_ns(server, port):
+      s = socket.socket()
+      s.connect((server, port))
+      s.setblocking(0)
+      ready = select.select([s], [], [], 0.5)
+      if ready[0]:
+        s.recv(8192) # salut ...
+      else:
+        return None
+      return s
+
+    def list_users(sock):
+      sock.send(b"list_users\n")
+      buf = ''
+      while True:
+        sock.setblocking(0)
+        ready = select.select([sock], [], [], 0.5)
+        if ready[0]:
+          tmp = sock.recv(8192)
+        else:
+          return []
+        buf += tmp.decode('utf-8')
+        if b'\nrep 002' in tmp or tmp == b'':
+          break
+      return buf.split('\n')[:-2]
+
+    def nb_connected():
+      sock = connect_to_ns(NS_SERVER, NS_PORT)
+      if sock is None:
+        return 0
+      users = (User(l) for l in list_users(sock))
+      promo = (u for u in users if u.promo == ING1_PROMO)
+      promo_in_sm = (u for u in promo if u.sm is not None)
+      return len(list(promo_in_sm))
+
+
+         */
 }
+
