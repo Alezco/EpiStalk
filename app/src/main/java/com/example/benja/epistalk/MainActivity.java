@@ -12,17 +12,21 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity
 {
     private ListView list_sm;
     private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 
         list_sm = (ListView) findViewById(R.id.list_sm);
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>();
         arrayList.add("1");
         arrayList.add("2");
         arrayList.add("3");
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         list_sm.setAdapter(arrayAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -82,26 +87,23 @@ public class MainActivity extends AppCompatActivity
 
     public void connectServer()
     {
+        arrayList.add("walala");
         try
         {
-            String registrationUrl = "ns-server.epita.fr";
-            URL url = new URL(registrationUrl);
-            URLConnection connection = url.openConnection();
-            HttpURLConnection httpConnection = (HttpURLConnection) connection;
-            int responseCode = httpConnection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK)
-            {
-                Log.d("EpiStalk", "Registration success");
-            }
-            else
-            {
-                Log.w("EpiStalk", "Registration failed for: " + registrationUrl);
-            }
-            Log.d("MyApp", "wololo");
-            System.out.println("walala");
+            Socket socket = new Socket("ns-server.epita.fr", 4242);
+            OutputStream out =  socket.getOutputStream();
+            InputStream in = socket.getInputStream();
+            Scanner s = new Scanner(System.in);
+            System.out.print("> ");
+            String msg = s.nextLine() + "\n";
+            for (int i = 0; i < msg.length(); i++)
+                out.write(msg.charAt(i));
+            Scanner s2 = new Scanner(in);
+            System.out.println("server: " + s2.nextLine());
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
+        catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 
