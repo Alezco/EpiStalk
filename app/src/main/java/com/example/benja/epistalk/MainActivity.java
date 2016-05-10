@@ -1,31 +1,27 @@
 package com.example.benja.epistalk;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
 import java.net.Socket;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity
 {
-    private ListView list_sm;
-    private ArrayAdapter<String> arrayAdapter;
     private ArrayList<String> arrayList;
 
     @Override
@@ -36,14 +32,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        list_sm = (ListView) findViewById(R.id.list_sm);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        ListView list_sm = (ListView) findViewById(R.id.list_sm);
 
         arrayList = new ArrayList<>();
-        arrayList.add("1");
-        arrayList.add("2");
-        arrayList.add("3");
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, arrayList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, arrayList);
+        assert list_sm != null;
         list_sm.setAdapter(arrayAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -63,7 +60,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -71,18 +67,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
     }
 
     public void connectServer()
@@ -91,15 +79,23 @@ public class MainActivity extends AppCompatActivity
         try
         {
             Socket socket = new Socket("ns-server.epita.fr", 4242);
-            OutputStream out =  socket.getOutputStream();
+            socket.setReceiveBufferSize(8192);
             InputStream in = socket.getInputStream();
-            Scanner s = new Scanner(System.in);
-            System.out.print("> ");
-            String msg = s.nextLine() + "\n";
-            for (int i = 0; i < msg.length(); i++)
-                out.write(msg.charAt(i));
-            Scanner s2 = new Scanner(in);
-            System.out.println("server: " + s2.nextLine());
+            OutputStream out = socket.getOutputStream();
+            byte[] buffer = new byte[8192];
+            in.read(buffer, 0, 8192);
+            out.write("list_users\n".getBytes());
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+            int i = 0;
+            while (i < 100)
+            {
+                String[] splitted = bufferedReader.readLine().split(" ");
+                User user = new User(splitted[1], splitted[2], splitted[9]);
+                arrayList.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                i++;
+            }
+            bufferedReader.close();
+
         }
         catch (IOException e)
         {
