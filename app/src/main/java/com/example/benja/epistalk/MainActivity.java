@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity
 
     public void connectServer()
     {
-        arrayList.add("walala");
         try
         {
             Socket socket = new Socket("ns-server.epita.fr", 4242);
@@ -86,13 +85,14 @@ public class MainActivity extends AppCompatActivity
             in.read(buffer, 0, 8192);
             out.write("list_users\n".getBytes());
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
-            int i = 0;
-            while (i < 100)
+            while (true)
             {
-                String[] splitted = bufferedReader.readLine().split(" ");
-                User user = new User(splitted[1], splitted[2], splitted[9]);
+                String line = bufferedReader.readLine();
+                if (line.contains("rep 002") || line.equals(""))
+                    break;
+                String[] split = line.split(" ");
+                User user = new User(split[1], split[2], split[9]);
                 arrayList.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
-                i++;
             }
             bufferedReader.close();
 
