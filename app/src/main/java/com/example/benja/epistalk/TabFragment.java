@@ -45,6 +45,7 @@ public class TabFragment extends Fragment {
             byte[] buffer = new byte[8192];
             in.read(buffer, 0, 8192);
             out.write("list_users\n".getBytes());
+            //TEST123
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
             while (true)
             {
