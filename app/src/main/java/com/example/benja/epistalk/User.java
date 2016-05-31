@@ -1,8 +1,5 @@
 package com.example.benja.epistalk;
 
-/**
- * Created by benja on 05/05/2016.
- */
 public class User
 {
     private String login;

@@ -9,13 +9,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TableLayout;
 
 public class MainActivity extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -32,24 +33,30 @@ public class MainActivity extends AppCompatActivity
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
+        if (viewPager != null)
+            viewPager.setAdapter(viewPagerAdapter);
         setSupportActionBar(toolbar);
 
-        final TabLayout.Tab home = tabLayout.newTab();
-        final TabLayout.Tab inbox = tabLayout.newTab();
-        final TabLayout.Tab star = tabLayout.newTab();
+        assert tabLayout != null;
+        final TabLayout.Tab cisco = tabLayout.newTab();
+        final TabLayout.Tab midlab = tabLayout.newTab();
+        final TabLayout.Tab sr = tabLayout.newTab();
+        final TabLayout.Tab sm14 = tabLayout.newTab();
 
-        home.setText("Home");
-        inbox.setText("Inbox");
-        star.setText("Star");
+        cisco.setText("Cisco");
+        midlab.setText("Midlab");
+        sr.setText("Sr");
+        sm14.setText("Sm-14");
 
-        tabLayout.addTab(home, 0);
-        tabLayout.addTab(inbox, 1);
-        tabLayout.addTab(star, 2);
+        tabLayout.addTab(cisco, 0);
+        tabLayout.addTab(midlab, 1);
+        tabLayout.addTab(sr, 2);
+        tabLayout.addTab(sm14, 3);
 
         tabLayout.setTabTextColors(ContextCompat.getColorStateList(this, R.color.tab_selector));
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.indicator));
 
+        assert viewPager != null;
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

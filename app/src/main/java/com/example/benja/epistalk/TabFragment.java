@@ -1,7 +1,9 @@
 package com.example.benja.epistalk;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,10 @@ import java.util.ArrayList;
 
 public class TabFragment extends Fragment {
     private ArrayList<String> arrayList;
+    private ArrayList<String> cisco;
+    private ArrayList<String> midlab;
+    private ArrayList<String> sr;
+    private ArrayList<String> sm14;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -25,7 +31,24 @@ public class TabFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.tabs, container, false);
         ListView list_sm = (ListView) rootView.findViewById(R.id.list_sm);
         arrayList = new ArrayList<>();
-        arrayList.add("wololo");
+        cisco = new ArrayList<>();
+        midlab = new ArrayList<>();
+        sr = new ArrayList<>();
+        sm14 = new ArrayList<>();
+        cisco.add("Cisco");
+        midlab.add("Mid-lab");
+        sr.add("Lab-SR");
+        sm14.add("SM-14");
+
+        int pageNum = this.getArguments().getInt("pagenum");
+        if (pageNum == 0)
+            arrayList = cisco;
+        if (pageNum == 1)
+            arrayList = midlab;
+        if (pageNum == 2)
+            arrayList = sr;
+        if (pageNum == 3)
+            arrayList = sm14;
         connectServer();
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
@@ -53,7 +76,14 @@ public class TabFragment extends Fragment {
                     break;
                 String[] split = line.split(" ");
                 User user = new User(split[1], split[2], split[9]);
-                arrayList.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                if (user.getIp().startsWith("10.224.32."))
+                    cisco.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                if (user.getIp().startsWith("10.224.33."))
+                    midlab.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                if (user.getIp().startsWith("10.224.34."))
+                    sr.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                if (user.getIp().startsWith("10.224.35."))
+                    sm14.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
             }
             bufferedReader.close();
         }
