@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class TabFragment extends Fragment {
     private ArrayList<String> arrayList;
@@ -24,6 +25,7 @@ public class TabFragment extends Fragment {
     private ArrayList<String> midlab;
     private ArrayList<String> sr;
     private ArrayList<String> sm14;
+    private ArrayList<String> other;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -35,10 +37,7 @@ public class TabFragment extends Fragment {
         midlab = new ArrayList<>();
         sr = new ArrayList<>();
         sm14 = new ArrayList<>();
-        cisco.add("Cisco");
-        midlab.add("Mid-lab");
-        sr.add("Lab-SR");
-        sm14.add("SM-14");
+        other = new ArrayList<>();
 
         int pageNum = this.getArguments().getInt("pagenum");
         if (pageNum == 0)
@@ -49,7 +48,13 @@ public class TabFragment extends Fragment {
             arrayList = sr;
         if (pageNum == 3)
             arrayList = sm14;
+        if (pageNum == 4)
+            arrayList = other;
         connectServer();
+        HashSet hashSet = new HashSet();
+        hashSet.addAll(arrayList);
+        arrayList.clear();
+        arrayList.addAll(hashSet);
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
         assert list_sm != null;
@@ -78,12 +83,15 @@ public class TabFragment extends Fragment {
                 User user = new User(split[1], split[2], split[9]);
                 if (user.getIp().startsWith("10.224.32."))
                     cisco.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
-                if (user.getIp().startsWith("10.224.33."))
+                else if (user.getIp().startsWith("10.224.33."))
                     midlab.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
-                if (user.getIp().startsWith("10.224.34."))
+                else if (user.getIp().startsWith("10.224.34."))
                     sr.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
-                if (user.getIp().startsWith("10.224.35."))
+                else if (user.getIp().startsWith("10.224.35."))
                     sm14.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                else
+                    other.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+
             }
             bufferedReader.close();
         }

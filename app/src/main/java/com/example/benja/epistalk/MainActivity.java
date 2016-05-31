@@ -33,9 +33,11 @@ public class MainActivity extends AppCompatActivity
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setOffscreenPageLimit(4);
         if (viewPager != null)
+        {
             viewPager.setAdapter(viewPagerAdapter);
+            viewPager.setOffscreenPageLimit(5);
+        }
         setSupportActionBar(toolbar);
 
         assert tabLayout != null;
@@ -43,16 +45,19 @@ public class MainActivity extends AppCompatActivity
         final TabLayout.Tab midlab = tabLayout.newTab();
         final TabLayout.Tab sr = tabLayout.newTab();
         final TabLayout.Tab sm14 = tabLayout.newTab();
+        final TabLayout.Tab other = tabLayout.newTab();
 
         cisco.setText("Cisco");
         midlab.setText("Midlab");
         sr.setText("Sr");
         sm14.setText("Sm-14");
+        other.setText("Other");
 
         tabLayout.addTab(cisco, 0);
         tabLayout.addTab(midlab, 1);
         tabLayout.addTab(sr, 2);
         tabLayout.addTab(sm14, 3);
+        tabLayout.addTab(other, 4);
 
         tabLayout.setTabTextColors(ContextCompat.getColorStateList(this, R.color.tab_selector));
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.indicator));
