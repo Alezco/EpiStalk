@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class TabFragment extends Fragment {
-    private ArrayList<String> arrayList;
     private ArrayList<String> cisco;
     private ArrayList<String> midlab;
     private ArrayList<String> sr;
@@ -32,7 +31,7 @@ public class TabFragment extends Fragment {
     {
         View rootView = inflater.inflate(R.layout.tabs, container, false);
         ListView list_sm = (ListView) rootView.findViewById(R.id.list_sm);
-        arrayList = new ArrayList<>();
+        ArrayList<String> arrayList = new ArrayList<>();
         cisco = new ArrayList<>();
         midlab = new ArrayList<>();
         sr = new ArrayList<>();
