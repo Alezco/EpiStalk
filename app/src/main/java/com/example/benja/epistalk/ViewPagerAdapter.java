@@ -9,6 +9,8 @@ import android.support.v4.content.ContextCompat;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
+    int ciscolen = 0;
+
     public ViewPagerAdapter(FragmentManager fm)
     {
         super(fm);
@@ -21,6 +23,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         Bundle bundle = new Bundle();
         bundle.putInt("pagenum", position);
         tabFragment.setArguments(bundle);
+        //ciscolen = tabFragment.getCiscoLen();
         if (position == 0)
             return new Home();
         return tabFragment;

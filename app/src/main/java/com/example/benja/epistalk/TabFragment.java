@@ -97,4 +97,9 @@ public class TabFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
+    int getCiscoLen()
+    {
+        return cisco.size();
+    }
 }
