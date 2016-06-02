@@ -1,9 +1,7 @@
 package com.example.benja.epistalk;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,15 +37,15 @@ public class TabFragment extends Fragment {
         other = new ArrayList<>();
 
         int pageNum = this.getArguments().getInt("pagenum");
-        if (pageNum == 0)
-            arrayList = cisco;
         if (pageNum == 1)
-            arrayList = midlab;
+            arrayList = cisco;
         if (pageNum == 2)
-            arrayList = sr;
+            arrayList = midlab;
         if (pageNum == 3)
-            arrayList = sm14;
+            arrayList = sr;
         if (pageNum == 4)
+            arrayList = sm14;
+        if (pageNum == 5)
             arrayList = other;
         connectServer();
         HashSet hashSet = new HashSet();
