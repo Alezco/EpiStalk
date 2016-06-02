@@ -7,8 +7,7 @@
         android:id="@+id/home"
         android:icon="@mipmap/home_icon"
         android:title="@string/action_home"
-        app:showAsAction="ifRoom"
-        />
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/refresh"

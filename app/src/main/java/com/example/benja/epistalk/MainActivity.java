@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(MainActivity.this, "Not Yet Implemented", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Not Implemented Yet", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -63,6 +63,19 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
+        switch (item.getItemId())
+        {
+            case R.id.action_settings:
+                Toast.makeText(MainActivity.this, "Settings not implemented yet", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.home:
+                Toast.makeText(MainActivity.this, "Home not implemented yet", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.refresh:
+                Toast.makeText(MainActivity.this, "Refresh not implemented yet", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 }
