@@ -4,5 +4,11 @@
     <string name="action_refresh">Refresh</string>
     <string name="action_home">Home</string>
     <string name="list_name">People in SM</string>
-    <string name="test_string">Wololo</string>
+    <string name="sm_cisco">Cisco : </string>
+    <string name="sm_midlab">Mid-lab : </string>
+    <string name="sm_labsr">Lab-SR : </string>
+    <string name="sm_sm14">SM-14 : </string>
+    <string name="sm_other">Other : </string>
+    <string name="sm_total">Total : </string>
+    <string name="sm_othertotal">Other total :</string>
 </resources>

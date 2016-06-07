@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, "Settings not implemented yet", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.home:
+                //getSupportFragmentManager().beginTransaction().replace(R.id.pager_tab_strip, new Home()).commit();
                 Toast.makeText(MainActivity.this, "Home not implemented yet", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.refresh:

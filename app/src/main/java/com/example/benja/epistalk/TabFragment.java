@@ -78,16 +78,17 @@ public class TabFragment extends Fragment {
                     break;
                 String[] split = line.split(" ");
                 User user = new User(split[1], split[2], split[9]);
+                String userString= String.format("%-15s%-20s%-20s", user.getLogin(), user.getIp(), user.getPromo());
                 if (user.getIp().startsWith("10.224.32."))
-                    cisco.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                    cisco.add(userString);
                 else if (user.getIp().startsWith("10.224.33."))
-                    midlab.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                    midlab.add(userString);
                 else if (user.getIp().startsWith("10.224.34."))
-                    sr.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                    sr.add(userString);
                 else if (user.getIp().startsWith("10.224.35."))
-                    sm14.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                    sm14.add(userString);
                 else
-                    other.add(user.getLogin() + " " + user.getIp() + " " + user.getPromo());
+                    other.add(userString);
 
             }
             bufferedReader.close();
