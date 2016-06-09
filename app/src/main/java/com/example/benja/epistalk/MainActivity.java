@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+    ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         if (viewPager != null)
@@ -69,8 +70,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, "Settings not implemented yet", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.home:
-                //getSupportFragmentManager().beginTransaction().replace(R.id.pager_tab_strip, new Home()).commit();
-                Toast.makeText(MainActivity.this, "Home not implemented yet", Toast.LENGTH_SHORT).show();
+                viewPager.setCurrentItem(0);
                 break;
             case R.id.refresh:
                 Toast.makeText(MainActivity.this, "Refresh not implemented yet", Toast.LENGTH_SHORT).show();
