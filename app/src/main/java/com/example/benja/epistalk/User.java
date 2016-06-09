@@ -18,28 +18,13 @@ public class User
         return login;
     }
 
-    public void setLogin(String login)
-    {
-        this.login = login;
-    }
-
     public String getIp()
     {
         return ip;
     }
 
-    public void setIp(String ip)
-    {
-        this.ip = ip;
-    }
-
     public String getPromo()
     {
         return promo;
-    }
-
-    public void setPromo(String promo)
-    {
-        this.promo = promo;
     }
 }

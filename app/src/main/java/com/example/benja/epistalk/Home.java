@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class Home extends Fragment
 {
     @Nullable
@@ -24,6 +22,7 @@ public class Home extends Fragment
         TextView total = (TextView) self.findViewById(R.id.textView7);
         TextView other = (TextView) self.findViewById(R.id.textView6);
         TextView othertotal = (TextView) self.findViewById(R.id.textView8);
+
         int ciscolen = RequestManager.getInstance().getCisco().size();
         int midlen = RequestManager.getInstance().getMidlab().size();
         int srlen = RequestManager.getInstance().getSr().size();
@@ -31,6 +30,7 @@ public class Home extends Fragment
         int otherlen = RequestManager.getInstance().getOther().size();
         int totallen = ciscolen + midlen + srlen + sm14len;
         int othertotallen = totallen + otherlen;
+
         String ciscotext = "Cisco : " + ciscolen;
         String midtext = "Mid-lab : " + midlen;
         String srtext = "Lab-SR : " + srlen;
@@ -38,6 +38,7 @@ public class Home extends Fragment
         String totaltext = "Total : " + totallen;
         String othertext = "Other : " + otherlen;
         String othertotaltext = "Other Total : " + othertotallen;
+
         cisco.setText(ciscotext);
         midlab.setText(midtext);
         sr.setText(srtext);
@@ -45,6 +46,7 @@ public class Home extends Fragment
         total.setText(totaltext);
         other.setText(othertext);
         othertotal.setText(othertotaltext);
+
         return self;
     }
 }

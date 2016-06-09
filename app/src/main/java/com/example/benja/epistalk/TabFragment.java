@@ -12,13 +12,6 @@ import java.util.ArrayList;
 
 public class TabFragment extends Fragment
 {
-    ArrayAdapter<String> arrayAdapter;
-
-    public ArrayAdapter<String> getArrayAdapter()
-    {
-        return arrayAdapter;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -37,7 +30,7 @@ public class TabFragment extends Fragment
             arrayList = RequestManager.getInstance().getSm14();
         if (pageNum == 5)
             arrayList = RequestManager.getInstance().getOther();
-        arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
         assert list_sm != null;
         list_sm.setAdapter(arrayAdapter);
 

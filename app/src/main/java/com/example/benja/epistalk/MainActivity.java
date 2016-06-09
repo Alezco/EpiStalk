@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        int id = item.getItemId();
+        //int id = item.getItemId();
         switch (item.getItemId())
         {
             /*case R.id.action_settings:

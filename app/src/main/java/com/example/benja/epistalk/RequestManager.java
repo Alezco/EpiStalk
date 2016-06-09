@@ -1,7 +1,5 @@
 package com.example.benja.epistalk;
 
-import android.widget.ArrayAdapter;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
