@@ -3,18 +3,12 @@ package com.example.benja.epistalk;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -37,11 +31,11 @@ public class MainActivity extends AppCompatActivity
         if (viewPager != null)
         {
             viewPager.setAdapter(viewPagerAdapter);
-            viewPager.setOffscreenPageLimit(6);
+            viewPager.setOffscreenPageLimit(0);
         }
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener()
         {
@@ -50,7 +44,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Toast.makeText(MainActivity.this, "Not Implemented Yet", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 
     @Override
@@ -66,18 +60,18 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (item.getItemId())
         {
-            case R.id.action_settings:
+            /*case R.id.action_settings:
                 Toast.makeText(MainActivity.this, "Settings not implemented yet", Toast.LENGTH_SHORT).show();
-                break;
+                break;*/
             case R.id.home:
                 viewPager.setCurrentItem(0);
                 break;
             case R.id.refresh:
-                Toast.makeText(MainActivity.this, "Refresh not implemented yet", Toast.LENGTH_SHORT).show();
+                RequestManager.getInstance().refresh();
+                Toast.makeText(MainActivity.this, "Refreshing...", Toast.LENGTH_SHORT).show();
                 break;
-
         }
-        return id == R.id.action_settings || super.onOptionsItemSelected(item);
+        return /*id == R.id.action_settings ||*/ super.onOptionsItemSelected(item);
     }
 }
 

@@ -1,5 +1,7 @@
 package com.example.benja.epistalk;
 
+import android.widget.ArrayAdapter;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,8 +61,18 @@ public class RequestManager
         connectServer();
     }
 
+    public void refresh()
+    {
+        connectServer();
+    }
+
     public void connectServer()
     {
+        cisco.clear();
+        midlab.clear();
+        sr.clear();
+        sm14.clear();
+        other.clear();
         HashSet<String> ciscoH = new HashSet<>();
         HashSet<String> midH = new HashSet<>();
         HashSet<String> srH = new HashSet<>();

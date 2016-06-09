@@ -15,9 +15,9 @@
         android:title="@string/action_refresh"
         app:showAsAction="ifRoom"/>
 
-    <item
+    <!--<item
         android:id="@+id/action_settings"
         android:icon="@mipmap/settings_icon"
         android:title="@string/action_settings"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom"/>-->
 </menu>
