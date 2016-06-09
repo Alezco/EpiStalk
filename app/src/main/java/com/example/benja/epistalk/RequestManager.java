@@ -95,7 +95,7 @@ public class RequestManager
                     break;
                 String[] split = line.split(" ");
                 User user = new User(split[1], split[2], split[9]);
-                String userString= String.format("%-15s%-20s%-20s", user.getLogin(), user.getIp(), user.getPromo());
+                String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
                 if (user.getIp().startsWith("10.224.32."))
                     ciscoH.add(userString);
                 else if (user.getIp().startsWith("10.224.33."))
