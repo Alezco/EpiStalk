@@ -11,4 +11,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_sm"
+        android:id="@+id/textView9"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentTop="true"/>
 </RelativeLayout>
