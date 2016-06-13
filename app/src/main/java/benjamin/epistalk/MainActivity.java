@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+    Toast toast = null;
     ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -66,7 +67,10 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.refresh:
                 RequestManager.getInstance().refresh();
-                Toast.makeText(MainActivity.this, "Refreshing...", Toast.LENGTH_SHORT).show();
+                if (toast != null)
+                    toast.cancel();
+                toast = Toast.makeText(MainActivity.this, "Refreshing...", Toast.LENGTH_SHORT);
+                toast.show();
                 break;
         }
         return /*id == R.id.action_settings ||*/ super.onOptionsItemSelected(item);
