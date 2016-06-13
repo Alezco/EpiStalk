@@ -29,6 +29,7 @@ public class TabFragment extends Fragment
             arrayList = RequestManager.getInstance().getSm14();
         if (pageNum == 5)
             arrayList = RequestManager.getInstance().getOther();
+        java.util.Collections.sort(arrayList);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
         assert list_sm != null;
         list_sm.setAdapter(arrayAdapter);
