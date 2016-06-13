@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
-    Toast toast = null;
-    ViewPager viewPager;
+    private Toast toast = null;
+    private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        final ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         if (viewPager != null)
         {
             viewPager.setAdapter(viewPagerAdapter);
@@ -74,6 +76,11 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
         return /*id == R.id.action_settings ||*/ super.onOptionsItemSelected(item);
+    }
+
+    public ViewPager getViewPager()
+    {
+        return viewPager;
     }
 }
 

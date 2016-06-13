@@ -3,6 +3,8 @@ package benjamin.epistalk;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,66 @@ public class Home extends Fragment
         other.setText(othertext);
         othertotal.setText(othertotaltext);
 
+        handleCards(self);
+
         return self;
+    }
+
+    public void handleCards(View self)
+    {
+        CardView ciscoCardview = (CardView) self.findViewById(R.id.cisco_cardview);
+        ciscoCardview.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
+                viewPager.setCurrentItem(1);
+            }
+        });
+
+        CardView midlabCardview = (CardView) self.findViewById(R.id.midlab_cardview);
+        midlabCardview.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
+                viewPager.setCurrentItem(2);
+            }
+        });
+
+        CardView srCardview = (CardView) self.findViewById(R.id.sr_cardview);
+        srCardview.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
+                viewPager.setCurrentItem(3);
+            }
+        });
+
+        CardView sm14Cardview = (CardView) self.findViewById(R.id.sm14_cardview);
+        sm14Cardview.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
+                viewPager.setCurrentItem(4);
+            }
+        });
+
+        CardView otherCardview = (CardView) self.findViewById(R.id.other_cardview);
+        otherCardview.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ViewPager viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
+                viewPager.setCurrentItem(5);
+            }
+        });
     }
 }

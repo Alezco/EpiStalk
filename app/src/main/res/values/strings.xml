@@ -3,7 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_home">Home</string>
-    <string name="list_name">People in SM</string>
     <string name="sm_cisco">Cisco : </string>
     <string name="sm_midlab">Mid-lab : </string>
     <string name="sm_labsr">Lab-SR : </string>
