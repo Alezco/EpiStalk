@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package benjamin.epistalk;
 
 import java.io.BufferedReader;
 import java.io.IOException;

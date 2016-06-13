@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package benjamin.epistalk;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
