@@ -1,4 +1,4 @@
-package benjamin.epistalk;
+package com.benja.epistalk;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import benjamin.epistalk.R;
 
 public class Home extends Fragment
 {

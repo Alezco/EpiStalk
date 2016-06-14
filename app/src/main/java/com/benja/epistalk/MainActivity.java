@@ -1,4 +1,4 @@
-package benjamin.epistalk;
+package com.benja.epistalk;
 
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -7,8 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
+
+import benjamin.epistalk.R;
 
 public class MainActivity extends AppCompatActivity
 {

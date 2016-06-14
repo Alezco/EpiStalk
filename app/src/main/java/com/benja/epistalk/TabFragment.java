@@ -1,4 +1,4 @@
-package benjamin.epistalk;
+package com.benja.epistalk;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import benjamin.epistalk.R;
 
 public class TabFragment extends Fragment
 {

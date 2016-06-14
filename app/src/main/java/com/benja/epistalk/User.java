@@ -1,4 +1,4 @@
-package benjamin.epistalk;
+package com.benja.epistalk;
 
 public class User
 {
