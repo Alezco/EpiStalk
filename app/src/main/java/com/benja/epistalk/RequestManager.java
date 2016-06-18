@@ -1,5 +1,7 @@
 package com.benja.epistalk;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -83,7 +85,9 @@ public class RequestManager
             InputStream in = socket.getInputStream();
             OutputStream out = socket.getOutputStream();
             byte[] buffer = new byte[8192];
-            in.read(buffer, 0, 8192);
+            int bytesRead = in.read(buffer, 0, 8192);
+            if (bytesRead == -1)
+                Log.d("EpiStalk", "Invalid read size on server");
             out.write("list_users\n".getBytes());
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
             while (true)
@@ -92,7 +96,8 @@ public class RequestManager
                 if (line.contains("rep 002") || line.equals(""))
                     break;
                 String[] split = line.split(" ");
-                User user = new User(split[1], split[2], split[9]);
+                User user = new User(split[0], split[1], split[2], split[3], split[4], split[5],
+                                     split[8], split[9], split[10], split[11]);
                 String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
                 if (user.getIp().startsWith("10.224.32."))
                     ciscoH.add(userString);

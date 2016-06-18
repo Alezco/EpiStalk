@@ -11,4 +11,15 @@
     <string name="sm_total">Total : </string>
     <string name="sm_othertotal">Other total :</string>
     <string name="empty_sm">There\'s no one here</string>
+
+    <string name="profile_socket">Socket : </string>
+    <string name="profile_login">Login : </string>
+    <string name="profile_ip">IP Address : </string>
+    <string name="profile_timeConnection">Connected at : </string>
+    <string name="profile_lastStatusChange">Last status change : </string>
+    <string name="profile_inPIE">Is in PIE : </string>
+    <string name="profile_location">Location : </string>
+    <string name="profile_promo">Promo : </string>
+    <string name="profile_status">Status : </string>
+    <string name="profile_userdata">User data : </string>
 </resources>
