@@ -59,12 +59,12 @@ public class RequestManager
         sm14 = new ArrayList<>();
         other = new ArrayList<>();
         connectServer();
-        //new ThreadConnect().doInBackground();
+        new ThreadConnect().execute();
     }
 
     public void refresh()
     {
-        connectServer();
+        new ThreadConnect().execute();
     }
 
     public void connectServer()
