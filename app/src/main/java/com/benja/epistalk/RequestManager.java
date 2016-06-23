@@ -58,7 +58,6 @@ public class RequestManager
         sr = new ArrayList<>();
         sm14 = new ArrayList<>();
         other = new ArrayList<>();
-        connectServer();
         new ThreadConnect().execute();
     }
 

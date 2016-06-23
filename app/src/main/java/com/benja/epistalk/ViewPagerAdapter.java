@@ -1,8 +1,6 @@
 package com.benja.epistalk;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -84,6 +82,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter
             drawable = context.getResources().getDrawable(R.mipmap.home_icon);
         else
             drawable = context.getResources().getDrawable(R.mipmap.desktop_icon_white);
+        assert drawable != null;
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth() / 2 - 10, drawable.getIntrinsicHeight() / 2 - 10);
         ImageSpan imageSpan = new ImageSpan(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
         sb.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
