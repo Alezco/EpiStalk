@@ -17,6 +17,7 @@ public class RequestManager
     private ArrayList<String> midlab;
     private ArrayList<String> sr;
     private ArrayList<String> sm14;
+    private ArrayList<String> other;
 
     public ArrayList<String> getCisco()
     {
@@ -43,7 +44,6 @@ public class RequestManager
         return other;
     }
 
-    private ArrayList<String> other;
     private static RequestManager ourInstance = new RequestManager();
 
     public static RequestManager getInstance()
