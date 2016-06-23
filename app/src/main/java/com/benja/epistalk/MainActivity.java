@@ -14,7 +14,7 @@ import benjamin.epistalk.R;
 public class MainActivity extends AppCompatActivity
 {
     private Toast toast = null;
-    private ViewPager viewPager;
+    private static ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
             viewPager.setAdapter(viewPagerAdapter);
             viewPager.setOffscreenPageLimit(0);
         }
+
         setSupportActionBar(toolbar);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

@@ -2,6 +2,7 @@ package com.benja.epistalk;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ public class TabFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View rootView = inflater.inflate(R.layout.tabs, container, false);
-        ListView list_sm = (ListView) rootView.findViewById(R.id.list_sm);
+        final ListView list_sm = (ListView) rootView.findViewById(R.id.list_sm);
         TextView textView = (TextView) rootView.findViewById(R.id.textView9);
         ArrayList<String> arrayList = new ArrayList<>();
 
@@ -37,9 +38,21 @@ public class TabFragment extends Fragment
         java.util.Collections.sort(arrayList);
         if (arrayList.size() == 0)
             textView.setVisibility(View.VISIBLE);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
         assert list_sm != null;
         list_sm.setAdapter(arrayAdapter);
+
+        final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.refresh_container);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                new ThreadConnect().execute();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+        swipeRefreshLayout.setColorSchemeColors(android.R.color.holo_blue_bright);
 
         return rootView;
     }
