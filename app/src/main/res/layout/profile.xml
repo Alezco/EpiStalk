@@ -8,60 +8,70 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_socket"
         android:id="@+id/profile_socket"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_login"
         android:id="@+id/profile_login"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_ip"
         android:id="@+id/profile_ip"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_timeConnection"
         android:id="@+id/profile_timeConnection"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_lastStatusChange"
         android:id="@+id/profile_lastStatusChange"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_inPIE"
         android:id="@+id/profile_inPIE"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_location"
         android:id="@+id/profile_location"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_promo"
         android:id="@+id/profile_promo"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_status"
         android:id="@+id/profile_status"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:text="@string/profile_userdata"
         android:id="@+id/profile_userdata"/>
 </LinearLayout>
