@@ -1,9 +1,19 @@
 package com.benja.epistalk;
 
+import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.DynamicDrawableSpan;
+import android.text.style.ImageSpan;
+
+import benjamin.epistalk.R;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter
 {
@@ -12,10 +22,12 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter
     int srlen = 0;
     int sm14len = 0;
     int otherlen = 0;
+    Context context;
 
-    public ViewPagerAdapter(FragmentManager fm)
+    public ViewPagerAdapter(FragmentManager fm, Context context)
     {
         super(fm);
+        this.context = context;
     }
 
     @Override
@@ -42,23 +54,40 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter
     }
 
     @Override
-    public String getPageTitle(int position)
+    public CharSequence getPageTitle(int position)
     {
+        String s = "";
         switch (position)
         {
             case 0:
-                return "Home";
+                s = " Home";
+                break;
             case 1:
-                return "Cisco(" + ciscolen + ")";
+                s = " Cisco(" + ciscolen + ")";
+                break;
             case 2:
-                return "Mid-Lab(" + midlablen + ")";
+                s = " Mid-Lab(" + midlablen + ")";
+                break;
             case 3:
-                return "Lab-SR(" + srlen + ")";
+                s = " Lab-SR(" + srlen + ")";
+                break;
             case 4:
-                return "SM-14(" + sm14len + ")";
+                s = " SM-14(" + sm14len + ")";
+                break;
             case 5:
-                return "Other(" + otherlen + ")";
+                s = " Other(" + otherlen + ")";
+                break;
         }
-        return "Test";
+        SpannableStringBuilder sb = new SpannableStringBuilder(s);
+        Drawable drawable;
+        if (position == 0)
+            drawable = context.getResources().getDrawable(R.mipmap.home_icon);
+        else
+            drawable = context.getResources().getDrawable(R.mipmap.desktop_icon_white);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth() / 2 - 10, drawable.getIntrinsicHeight() / 2 - 10);
+        ImageSpan imageSpan = new ImageSpan(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
+        sb.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        return sb;
     }
 }
