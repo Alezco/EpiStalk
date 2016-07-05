@@ -8,6 +8,7 @@ public class ThreadConnect extends AsyncTask<Void, Integer, Void>
     protected Void doInBackground(Void... params)
     {
         RequestManager.getInstance().connectServer();
+        RequestManager.getInstance().doRefresh();
         return null;
     }
 

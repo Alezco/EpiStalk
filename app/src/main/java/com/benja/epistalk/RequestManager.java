@@ -11,7 +11,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-
 public class RequestManager
 {
     private ArrayList<String> cisco;
@@ -19,6 +18,7 @@ public class RequestManager
     private ArrayList<String> sr;
     private ArrayList<String> sm14;
     private ArrayList<String> other;
+    private ArrayList<Resfreshable> fragments;
 
     public ArrayList<String> getCisco()
     {
@@ -59,12 +59,19 @@ public class RequestManager
         sr = new ArrayList<>();
         sm14 = new ArrayList<>();
         other = new ArrayList<>();
+        fragments = new ArrayList<>();
         new ThreadConnect().execute();
     }
 
     public void refresh()
     {
         new ThreadConnect().execute();
+    }
+
+    public void doRefresh()
+    {
+        for (Resfreshable r : fragments)
+            r.refresh();
     }
 
     public void connectServer()
@@ -122,5 +129,17 @@ public class RequestManager
         {
             e.printStackTrace();
         }
+    }
+
+    public void registerRefreshable(Resfreshable resfreshable)
+    {
+        if (fragments.contains(resfreshable))
+            fragments.add(resfreshable);
+    }
+
+    public void unregisterRefreshable(Resfreshable resfreshable)
+    {
+        if (fragments.contains(resfreshable))
+            fragments.remove(resfreshable);
     }
 }

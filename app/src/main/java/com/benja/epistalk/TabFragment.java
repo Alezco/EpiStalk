@@ -14,8 +14,10 @@ import java.util.ArrayList;
 
 import benjamin.epistalk.R;
 
-public class TabFragment extends Fragment
+public class TabFragment extends Fragment implements Resfreshable
 {
+    int pagenum;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -55,5 +57,23 @@ public class TabFragment extends Fragment
         swipeRefreshLayout.setColorSchemeColors(android.R.color.holo_blue_bright);
 
         return rootView;
+    }
+
+    @Override
+    public void refresh()
+    {
+
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
     }
 }
