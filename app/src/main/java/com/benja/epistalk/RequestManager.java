@@ -133,7 +133,7 @@ public class RequestManager
 
     public void registerRefreshable(Resfreshable resfreshable)
     {
-        if (fragments.contains(resfreshable))
+        if (!fragments.contains(resfreshable))
             fragments.add(resfreshable);
     }
 
