@@ -116,7 +116,7 @@ public class Home extends Fragment implements Resfreshable
         String sm14text = "SM-14 : " + sm14len;
         String totaltext = "Total : " + totallen;
         String othertext = "Other : " + otherlen;
-        String othertotaltext = "Other Total : " + othertotallen;
+        String othertotaltext = "Total with other : " + othertotallen;
 
         cisco.setText(ciscotext);
         midlab.setText(midtext);

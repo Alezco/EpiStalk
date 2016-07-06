@@ -60,6 +60,8 @@ public class TabFragment extends Fragment implements Resfreshable
         java.util.Collections.sort(arrayList);
         if (arrayList.size() == 0)
             textView.setVisibility(View.VISIBLE);
+        else
+            textView.setVisibility(View.INVISIBLE);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
         assert list_sm != null;
         list_sm.setAdapter(arrayAdapter);
