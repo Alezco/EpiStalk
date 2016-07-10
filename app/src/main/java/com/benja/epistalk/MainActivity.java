@@ -13,8 +13,8 @@ import benjamin.epistalk.R;
 
 public class MainActivity extends AppCompatActivity
 {
-    private Toast toast = null;
     private static ViewPager viewPager;
+    private Toast toast = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity
                 RequestManager.getInstance().refresh();
                 if (toast != null)
                     toast.cancel();
-                toast = Toast.makeText(MainActivity.this, "Refreshing...", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(MainActivity.this, getResources().getString(R.string.refreshing), Toast.LENGTH_SHORT);
                 toast.show();
                 break;
         }

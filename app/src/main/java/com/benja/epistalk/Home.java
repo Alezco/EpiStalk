@@ -14,13 +14,13 @@ import benjamin.epistalk.R;
 
 public class Home extends Fragment implements Resfreshable
 {
-    TextView cisco;
-    TextView midlab;
-    TextView sr;
-    TextView sm14;
-    TextView total;
-    TextView other;
-    TextView othertotal;
+    private TextView cisco;
+    private TextView midlab;
+    private TextView sr;
+    private TextView sm14;
+    private TextView total;
+    private TextView other;
+    private TextView othertotal;
 
     @Nullable
     @Override
@@ -110,13 +110,13 @@ public class Home extends Fragment implements Resfreshable
         int totallen = ciscolen + midlen + srlen + sm14len;
         int othertotallen = totallen + otherlen;
 
-        String ciscotext = "Cisco : " + ciscolen;
-        String midtext = "Mid-lab : " + midlen;
-        String srtext = "Lab-SR : " + srlen;
-        String sm14text = "SM-14 : " + sm14len;
-        String totaltext = "Total : " + totallen;
-        String othertext = "Other : " + otherlen;
-        String othertotaltext = "Total with other : " + othertotallen;
+        String ciscotext = getResources().getString(R.string.sm_cisco) + " " + ciscolen;
+        String midtext = getResources().getString(R.string.sm_midlab) + " " + midlen;
+        String srtext = getResources().getString(R.string.sm_labsr) + " " + srlen;
+        String sm14text = getResources().getString(R.string.sm_sm14) + " " + sm14len;
+        String totaltext = getResources().getString(R.string.sm_total) + " " + totallen;
+        String othertext = getResources().getString(R.string.sm_other) + " " + otherlen;
+        String othertotaltext = getResources().getString(R.string.sm_othertotal) + " " + othertotallen;
 
         cisco.setText(ciscotext);
         midlab.setText(midtext);

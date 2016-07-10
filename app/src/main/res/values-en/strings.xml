@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EpiStalk</string>
+    <string name="action_home">Home</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
+    <string name="empty_sm">There\'s no one here</string>
+    <string name="home_description">Home Logo</string>
+    <string name="profile_inPIE">Is in PIE:</string>
+    <string name="profile_ip">IP Address:</string>
+    <string name="profile_lastStatusChange">Last status change:</string>
+    <string name="profile_location">Location:</string>
+    <string name="profile_login">Login:</string>
+    <string name="profile_promo">Promo:</string>
+    <string name="profile_socket">Socket:</string>
+    <string name="profile_status">Status:</string>
+    <string name="profile_timeConnection">Connected at:</string>
+    <string name="profile_userdata">User data:</string>
+    <string name="sm_cisco">Cisco:</string>
+    <string name="sm_description">Screen Logo</string>
+    <string name="sm_labsr">Lab-SR:</string>
+    <string name="sm_midlab">Mid-lab:</string>
+    <string name="sm_other">Other:</string>
+    <string name="sm_othertotal">Total with other:</string>
+    <string name="sm_sm14">SM-14:</string>
+    <string name="sm_total">Total:</string>
+    <string name="stats_description">Stats Logo</string>
+    <string name="refreshing">Refreshing…</string>
+    <string name="vp_cisco">Cisco (</string>
+    <string name="vp_close">)</string>
+    <string name="vp_home">Home</string>
+    <string name="vp_midlab">Mid-lab (</string>
+    <string name="vp_other">Other (</string>
+    <string name="vp_sm14">SM-14 (</string>
+    <string name="vp_sr">Lab-SR (</string>
+</resources>

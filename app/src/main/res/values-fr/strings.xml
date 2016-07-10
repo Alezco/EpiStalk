@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EpiStalk</string>
+    <string name="action_home">Accueil</string>
+    <string name="action_refresh">Actualiser</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="empty_sm">Il n\'y a personne ici</string>
+    <string name="home_description">Logo d\'accueil</string>
+    <string name="profile_inPIE">Est dans le PIE :</string>
+    <string name="profile_ip">Adresse IP :</string>
+    <string name="profile_lastStatusChange">Dernier changement de statut :</string>
+    <string name="profile_location">Lieu :</string>
+    <string name="profile_login">Login :</string>
+    <string name="profile_promo">Promo :</string>
+    <string name="profile_socket">Socket :</string>
+    <string name="profile_status">Statut :</string>
+    <string name="profile_timeConnection">Connecté à :</string>
+    <string name="profile_userdata"> Données utilisateur :</string>
+    <string name="sm_cisco">Cisco :</string>
+    <string name="sm_description">Logo d\'écran</string>
+    <string name="sm_labsr">Lab-SR : </string>
+    <string name="sm_midlab">Mid-Lab :</string>
+    <string name="sm_other">Autre :</string>
+    <string name="sm_othertotal">Total avec autre :</string>
+    <string name="sm_sm14">SM-14 :</string>
+    <string name="sm_total">Total :</string>
+    <string name="stats_description">Logo des statistiques</string>
+    <string name="refreshing">Actualisation en cours…</string>
+    <string name="vp_cisco">Cisco (</string>
+    <string name="vp_close">)</string>
+    <string name="vp_midlab">Mid-lab (</string>
+    <string name="vp_sm14">SM-14 (</string>
+    <string name="vp_sr">Lab-SR (</string>
+    <string name="vp_home">Accueil</string>
+    <string name="vp_other">Autre (</string>
+</resources>

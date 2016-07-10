@@ -3,75 +3,190 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_socket"
-        android:id="@+id/profile_socket"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_login"
+                android:layout_toRightOf="@id/profile_person"
+                android:layout_alignTop="@id/profile_person"
+                android:layout_alignBottom="@id/profile_person"
+                android:id="@+id/profile_login"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_login"
-        android:id="@+id/profile_login"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person2"
+                android:layout_below="@id/profile_person"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_ip"
-        android:id="@+id/profile_ip"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_socket"
+                android:layout_below="@id/profile_login"
+                android:layout_toRightOf="@id/profile_person2"
+                android:layout_alignTop="@id/profile_person2"
+                android:layout_alignBottom="@id/profile_person2"
+                android:id="@+id/profile_socket"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_timeConnection"
-        android:id="@+id/profile_timeConnection"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person3"
+                android:layout_below="@id/profile_person2"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_lastStatusChange"
-        android:id="@+id/profile_lastStatusChange"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_ip"
+                android:layout_below="@id/profile_socket"
+                android:layout_toRightOf="@id/profile_person3"
+                android:layout_alignTop="@id/profile_person3"
+                android:layout_alignBottom="@id/profile_person3"
+                android:id="@+id/profile_ip"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_inPIE"
-        android:id="@+id/profile_inPIE"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person4"
+                android:layout_below="@id/profile_person3"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_location"
-        android:id="@+id/profile_location"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_timeConnection"
+                android:layout_below="@id/profile_ip"
+                android:layout_toRightOf="@id/profile_person4"
+                android:layout_alignTop="@id/profile_person4"
+                android:layout_alignBottom="@id/profile_person4"
+                android:id="@+id/profile_timeConnection"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_promo"
-        android:id="@+id/profile_promo"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person5"
+                android:layout_below="@id/profile_person4"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_status"
-        android:id="@+id/profile_status"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_lastStatusChange"
+                android:layout_below="@id/profile_timeConnection"
+                android:layout_toRightOf="@id/profile_person5"
+                android:layout_alignTop="@id/profile_person5"
+                android:layout_alignBottom="@id/profile_person5"
+                android:id="@+id/profile_lastStatusChange"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="@string/profile_userdata"
-        android:id="@+id/profile_userdata"/>
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person6"
+                android:layout_below="@id/profile_person5"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_inPIE"
+                android:layout_below="@id/profile_lastStatusChange"
+                android:layout_toRightOf="@id/profile_person6"
+                android:layout_alignTop="@id/profile_person6"
+                android:layout_alignBottom="@id/profile_person6"
+                android:id="@+id/profile_inPIE"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person7"
+                android:layout_below="@id/profile_person6"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_location"
+                android:layout_below="@id/profile_inPIE"
+                android:layout_toRightOf="@id/profile_person7"
+                android:layout_alignTop="@id/profile_person7"
+                android:layout_alignBottom="@id/profile_person7"
+                android:id="@+id/profile_location"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person8"
+                android:layout_below="@id/profile_person7"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_promo"
+                android:layout_below="@id/profile_location"
+                android:layout_toRightOf="@id/profile_person8"
+                android:layout_alignTop="@id/profile_person8"
+                android:layout_alignBottom="@id/profile_person8"
+                android:id="@+id/profile_promo"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person9"
+                android:layout_below="@id/profile_person8"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_status"
+                android:layout_below="@id/profile_promo"
+                android:layout_toRightOf="@id/profile_person9"
+                android:layout_alignTop="@id/profile_person9"
+                android:layout_alignBottom="@id/profile_person9"
+                android:id="@+id/profile_status"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:id="@+id/profile_person10"
+                android:layout_below="@id/profile_person9"
+                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:src="@mipmap/person_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_userdata"
+                android:layout_below="@id/profile_status"
+                android:layout_toRightOf="@id/profile_person10"
+                android:layout_alignTop="@id/profile_person10"
+                android:layout_alignBottom="@id/profile_person10"
+                android:id="@+id/profile_userdata"/>
+        </RelativeLayout>
+    </ScrollView>
 </LinearLayout>

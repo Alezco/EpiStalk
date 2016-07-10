@@ -16,10 +16,10 @@ import benjamin.epistalk.R;
 
 public class TabFragment extends Fragment implements Resfreshable
 {
+    private TextView textView;
     private int pageNum;
     private ArrayList<String> arrayList;
     private ListView list_sm;
-    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

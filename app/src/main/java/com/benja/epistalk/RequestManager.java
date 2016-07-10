@@ -13,12 +13,29 @@ import java.util.HashSet;
 
 public class RequestManager
 {
+    private static RequestManager ourInstance = new RequestManager();
     private ArrayList<String> cisco;
     private ArrayList<String> midlab;
     private ArrayList<String> sr;
     private ArrayList<String> sm14;
     private ArrayList<String> other;
     private ArrayList<Resfreshable> fragments;
+
+    private RequestManager()
+    {
+        cisco = new ArrayList<>();
+        midlab = new ArrayList<>();
+        sr = new ArrayList<>();
+        sm14 = new ArrayList<>();
+        other = new ArrayList<>();
+        fragments = new ArrayList<>();
+        new ThreadConnect().execute();
+    }
+
+    public static RequestManager getInstance()
+    {
+        return ourInstance;
+    }
 
     public ArrayList<String> getCisco()
     {
@@ -43,24 +60,6 @@ public class RequestManager
     public ArrayList<String> getOther()
     {
         return other;
-    }
-
-    private static RequestManager ourInstance = new RequestManager();
-
-    public static RequestManager getInstance()
-    {
-        return ourInstance;
-    }
-
-    private RequestManager()
-    {
-        cisco = new ArrayList<>();
-        midlab = new ArrayList<>();
-        sr = new ArrayList<>();
-        sm14 = new ArrayList<>();
-        other = new ArrayList<>();
-        fragments = new ArrayList<>();
-        new ThreadConnect().execute();
     }
 
     public void refresh()

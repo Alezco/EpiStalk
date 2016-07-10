@@ -54,26 +54,26 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter
     @Override
     public CharSequence getPageTitle(int position)
     {
-        String s = "";
+        String s = " ";
         switch (position)
         {
             case 0:
-                s = " Home";
+                s += context.getResources().getString(R.string.vp_home);
                 break;
             case 1:
-                s = " Cisco(" + ciscolen + ")";
+                s += context.getResources().getString(R.string.vp_cisco) + ciscolen + context.getResources().getString(R.string.vp_close);
                 break;
             case 2:
-                s = " Mid-Lab(" + midlablen + ")";
+                s += context.getResources().getString(R.string.vp_midlab) + midlablen + context.getResources().getString(R.string.vp_close);
                 break;
             case 3:
-                s = " Lab-SR(" + srlen + ")";
+                s += context.getResources().getString(R.string.vp_sr) + srlen + context.getResources().getString(R.string.vp_close);
                 break;
             case 4:
-                s = " SM-14(" + sm14len + ")";
+                s += context.getResources().getString(R.string.vp_sm14) + sm14len + context.getResources().getString(R.string.vp_close);
                 break;
             case 5:
-                s = " Other(" + otherlen + ")";
+                s += context.getResources().getString(R.string.vp_other) + otherlen + context.getResources().getString(R.string.vp_close);
                 break;
         }
         SpannableStringBuilder sb = new SpannableStringBuilder(s);
