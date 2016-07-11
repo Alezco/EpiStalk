@@ -80,4 +80,3 @@ public class MainActivity extends AppCompatActivity
         return /*id == R.id.action_settings ||*/ super.onOptionsItemSelected(item);
     }
 }
-

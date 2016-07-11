@@ -1,7 +1,5 @@
 package com.benja.epistalk;
 
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,11 +73,7 @@ public class RequestManager
 
     public void connectServer()
     {
-        cisco.clear();
-        midlab.clear();
-        sr.clear();
-        sm14.clear();
-        other.clear();
+        clearLists();
         HashSet<String> ciscoH = new HashSet<>();
         HashSet<String> midH = new HashSet<>();
         HashSet<String> srH = new HashSet<>();
@@ -94,7 +88,7 @@ public class RequestManager
             byte[] buffer = new byte[8192];
             int bytesRead = in.read(buffer, 0, 8192);
             if (bytesRead == -1)
-                Log.d("EpiStalk", "Invalid read size on server");
+               return;
             out.write("list_users\n".getBytes());
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
             while (true)
@@ -105,29 +99,50 @@ public class RequestManager
                 String[] split = line.split(" ");
                 User user = new User(split[0], split[1], split[2], split[3], split[4], split[5],
                                      split[8], split[9], split[10], split[11]);
-                String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
-                if (user.getIp().startsWith("10.224.32."))
-                    ciscoH.add(userString);
-                else if (user.getIp().startsWith("10.224.33."))
-                    midH.add(userString);
-                else if (user.getIp().startsWith("10.224.34."))
-                    srH.add(userString);
-                else if (user.getIp().startsWith("10.224.35."))
-                    sm14H.add(userString);
-                else
-                    otherH.add(userString);
+                fillLists(user, ciscoH, midH, srH, sm14H, otherH);
             }
             bufferedReader.close();
-            cisco.addAll(ciscoH);
-            midlab.addAll(midH);
-            sr.addAll(srH);
-            sm14.addAll(sm14H);
-            other.addAll(otherH);
+            removeDuplicates(ciscoH, midH, srH, sm14H, otherH);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+    }
+
+    private void clearLists()
+    {
+        cisco.clear();
+        midlab.clear();
+        sr.clear();
+        sm14.clear();
+        other.clear();
+    }
+
+    private void fillLists(User user, HashSet<String> ciscoH, HashSet<String> midH,
+                           HashSet<String> srH, HashSet<String> sm14H, HashSet<String> otherH)
+    {
+        String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
+        if (user.getIp().startsWith("10.224.32."))
+            ciscoH.add(userString);
+        else if (user.getIp().startsWith("10.224.33."))
+            midH.add(userString);
+        else if (user.getIp().startsWith("10.224.34."))
+            srH.add(userString);
+        else if (user.getIp().startsWith("10.224.35."))
+            sm14H.add(userString);
+        else
+            otherH.add(userString);
+    }
+
+    private void removeDuplicates(HashSet<String> ciscoH, HashSet<String> midH,
+                                  HashSet<String> srH, HashSet<String> sm14H, HashSet<String> otherH)
+    {
+        cisco.addAll(ciscoH);
+        midlab.addAll(midH);
+        sr.addAll(srH);
+        sm14.addAll(sm14H);
+        other.addAll(otherH);
     }
 
     public void registerRefreshable(Resfreshable resfreshable)

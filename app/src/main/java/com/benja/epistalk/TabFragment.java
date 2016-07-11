@@ -29,7 +29,7 @@ public class TabFragment extends Fragment implements Resfreshable
         textView = (TextView) rootView.findViewById(R.id.textView9);
         arrayList = new ArrayList<>();
 
-        pageNum = this.getArguments().getInt("pagenum");
+        pageNum = this.getArguments().getInt("pageNum");
         final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.refresh_container);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
         {

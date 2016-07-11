@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.DynamicDrawableSpan;
@@ -15,16 +16,21 @@ import benjamin.epistalk.R;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter
 {
-    int ciscolen = 0;
-    int midlablen = 0;
-    int srlen = 0;
-    int sm14len = 0;
-    int otherlen = 0;
-    Context context;
+    private int ciscolen;
+    private int midlablen;
+    private int srlen;
+    private int sm14len;
+    private int otherlen;
+    private Context context;
 
     public ViewPagerAdapter(FragmentManager fm, Context context)
     {
         super(fm);
+        ciscolen = 0;
+        midlablen = 0;
+        srlen = 0;
+        sm14len = 0;
+        otherlen = 0;
         this.context = context;
     }
 
@@ -33,7 +39,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter
     {
         TabFragment tabFragment = new TabFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt("pagenum", position);
+        bundle.putInt("pageNum", position);
         tabFragment.setArguments(bundle);
         ciscolen = RequestManager.getInstance().getCisco().size();
         midlablen = RequestManager.getInstance().getMidlab().size();
@@ -79,9 +85,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter
         SpannableStringBuilder sb = new SpannableStringBuilder(s);
         Drawable drawable;
         if (position == 0)
-            drawable = context.getResources().getDrawable(R.mipmap.home_icon);
+            drawable = ResourcesCompat.getDrawable(context.getResources(), R.mipmap.home_icon, null);
         else
-            drawable = context.getResources().getDrawable(R.mipmap.desktop_icon_white);
+            drawable = ResourcesCompat.getDrawable(context.getResources(), R.mipmap.desktop_icon_white, null);
         assert drawable != null;
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth() / 2 - 10, drawable.getIntrinsicHeight() / 2 - 10);
         ImageSpan imageSpan = new ImageSpan(drawable, DynamicDrawableSpan.ALIGN_BOTTOM);
