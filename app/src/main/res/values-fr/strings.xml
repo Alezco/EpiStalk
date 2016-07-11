@@ -33,4 +33,8 @@
     <string name="vp_sr">Lab-SR (</string>
     <string name="vp_home">Accueil</string>
     <string name="vp_other">Autre (</string>
+    <string name="person_description">Logo de person</string>
+    <string name="time_description">Logo d\'horloge</string>
+    <string name="location_description">Logo de localisation</string>
+    <string name="promo_description">Logo d\'école</string>
 </resources>

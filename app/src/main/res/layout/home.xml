@@ -28,20 +28,25 @@
                         android:layout_height="46dp"
                         android:id="@+id/cisco_image"
                         android:src="@mipmap/desktop_icon"
-                        android:tint="@color/bright_foreground_disabled_material_dark"
+                        android:tint="@color/light_gray"
+                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
                         android:paddingTop="10dp"
-                        android:contentDescription="sm_pic" />
+                        android:contentDescription="@string/home_description"
+                         />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_cisco"
                         android:id="@+id/textView2"
                         android:layout_weight="0.02"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="16dp" />
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
@@ -63,16 +68,21 @@
                         android:layout_height="46dp"
                         android:id="@+id/midlab_image"
                         android:src="@mipmap/desktop_icon"
-                        android:tint="@color/bright_foreground_disabled_material_dark"
+                        android:tint="@color/light_gray"
+                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"/>
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="10dp"
+                        android:contentDescription="@string/home_description"/>
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_midlab"
                         android:id="@+id/textView3"
                         android:layout_weight="0.02"
+                        android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -94,16 +104,21 @@
                         android:layout_height="46dp"
                         android:id="@+id/sr_image"
                         android:src="@mipmap/desktop_icon"
-                        android:tint="@color/bright_foreground_disabled_material_dark"
+                        android:tint="@color/light_gray"
+                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"/>
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="10dp"
+                        android:contentDescription="@string/home_description"/>
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_labsr"
                         android:id="@+id/textView4"
                         android:layout_weight="0.02"
+                        android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -125,17 +140,22 @@
                         android:layout_height="46dp"
                         android:id="@+id/sm14_image"
                         android:src="@mipmap/desktop_icon"
-                        android:tint="@color/bright_foreground_disabled_material_dark"
+                        android:tint="@color/light_gray"
+                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"/>
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="10dp"
+                        android:contentDescription="@string/home_description"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_sm14"
                         android:id="@+id/textView5"
                         android:layout_weight="0.02"
+                        android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -157,16 +177,21 @@
                         android:layout_height="46dp"
                         android:id="@+id/other_image"
                         android:src="@mipmap/desktop_icon"
-                        android:tint="@color/bright_foreground_disabled_material_dark"
+                        android:tint="@color/light_gray"
+                        android:paddingStart="10dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp"/>
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="10dp"
+                        android:contentDescription="@string/home_description"/>
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_other"
                         android:id="@+id/textView6"
                         android:layout_weight="0.02"
+                        android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
                 </LinearLayout>
@@ -177,10 +202,14 @@
                 android:layout_height="46dp"
                 android:id="@+id/total_image"
                 android:src="@mipmap/stats_icon"
-                android:tint="@color/accent_material_light"
+                android:tint="@color/light_green"
+                android:paddingStart="10dp"
                 android:paddingLeft="10dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"
                 android:layout_below="@id/other_cardview"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp"
+                android:contentDescription="@string/stats_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -188,23 +217,29 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/sm_total"
                 android:id="@+id/textView7"
+                android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:textStyle="bold"
                 android:paddingTop="2dp"
                 android:layout_below="@id/other_cardview"
                 android:layout_toRightOf="@id/total_image"
-                android:textColor="@color/accent_material_light"/>
+                android:layout_toEndOf="@id/total_image"
+                android:textColor="@color/light_green"/>
 
             <ImageView
                 android:layout_width="46dp"
                 android:layout_height="46dp"
                 android:id="@+id/othertotal_image"
                 android:src="@mipmap/stats_icon"
-                android:tint="@color/bright_foreground_disabled_material_dark"
+                android:tint="@color/light_gray"
+                android:paddingStart="10dp"
                 android:paddingLeft="10dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"
                 android:layout_below="@id/total_image"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp"
+                android:contentDescription="@string/stats_description"/>
 
             <TextView
                 android:layout_width="wrap_content"

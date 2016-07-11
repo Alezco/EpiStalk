@@ -34,4 +34,8 @@
     <string name="vp_close">)</string>
     <string name="vp_sm14">SM-14 (</string>
     <string name="vp_other">Other (</string>
+    <string name="person_description">Person Logo</string>
+    <string name="time_description">Time Logo</string>
+    <string name="location_description">Location Logo</string>
+    <string name="promo_description">School logo</string>
 </resources>

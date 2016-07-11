@@ -13,180 +13,200 @@
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_login_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/person_icon"
+                android:contentDescription="@string/person_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_login"
-                android:layout_toRightOf="@id/profile_person"
-                android:layout_alignTop="@id/profile_person"
-                android:layout_alignBottom="@id/profile_person"
+                android:layout_toRightOf="@id/profile_login_image"
+                android:layout_toEndOf="@id/profile_login_image"
+                android:layout_alignTop="@id/profile_login_image"
+                android:layout_alignBottom="@id/profile_login_image"
                 android:id="@+id/profile_login"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person2"
-                android:layout_below="@id/profile_person"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_socket_image"
+                android:layout_below="@id/profile_login_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/stats_icon"
+                android:contentDescription="@string/stats_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_socket"
                 android:layout_below="@id/profile_login"
-                android:layout_toRightOf="@id/profile_person2"
-                android:layout_alignTop="@id/profile_person2"
-                android:layout_alignBottom="@id/profile_person2"
+                android:layout_toRightOf="@id/profile_socket_image"
+                android:layout_toEndOf="@id/profile_socket_image"
+                android:layout_alignTop="@id/profile_socket_image"
+                android:layout_alignBottom="@id/profile_socket_image"
                 android:id="@+id/profile_socket"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person3"
-                android:layout_below="@id/profile_person2"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_ip_image"
+                android:layout_below="@id/profile_socket_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/stats_icon"
+                android:contentDescription="@string/stats_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_ip"
                 android:layout_below="@id/profile_socket"
-                android:layout_toRightOf="@id/profile_person3"
-                android:layout_alignTop="@id/profile_person3"
-                android:layout_alignBottom="@id/profile_person3"
+                android:layout_toRightOf="@id/profile_ip_image"
+                android:layout_toEndOf="@id/profile_ip_image"
+                android:layout_alignTop="@id/profile_ip_image"
+                android:layout_alignBottom="@id/profile_ip_image"
                 android:id="@+id/profile_ip"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person4"
-                android:layout_below="@id/profile_person3"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_timeConnection_image"
+                android:layout_below="@id/profile_ip_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/time_icon"
+                android:contentDescription="@string/time_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_timeConnection"
                 android:layout_below="@id/profile_ip"
-                android:layout_toRightOf="@id/profile_person4"
-                android:layout_alignTop="@id/profile_person4"
-                android:layout_alignBottom="@id/profile_person4"
+                android:layout_toRightOf="@id/profile_timeConnection_image"
+                android:layout_toEndOf="@id/profile_timeConnection_image"
+                android:layout_alignTop="@id/profile_timeConnection_image"
+                android:layout_alignBottom="@id/profile_timeConnection_image"
                 android:id="@+id/profile_timeConnection"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person5"
-                android:layout_below="@id/profile_person4"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_lastStatusChange_image"
+                android:layout_below="@id/profile_timeConnection_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/time_icon"
+                android:contentDescription="@string/time_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_lastStatusChange"
                 android:layout_below="@id/profile_timeConnection"
-                android:layout_toRightOf="@id/profile_person5"
-                android:layout_alignTop="@id/profile_person5"
-                android:layout_alignBottom="@id/profile_person5"
+                android:layout_toRightOf="@id/profile_lastStatusChange_image"
+                android:layout_toEndOf="@id/profile_lastStatusChange_image"
+                android:layout_alignTop="@id/profile_lastStatusChange_image"
+                android:layout_alignBottom="@id/profile_lastStatusChange_image"
                 android:id="@+id/profile_lastStatusChange"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person6"
-                android:layout_below="@id/profile_person5"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_inPIE_image"
+                android:layout_below="@id/profile_lastStatusChange_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/desktop_icon"
+                android:contentDescription="@string/sm_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_inPIE"
                 android:layout_below="@id/profile_lastStatusChange"
-                android:layout_toRightOf="@id/profile_person6"
-                android:layout_alignTop="@id/profile_person6"
-                android:layout_alignBottom="@id/profile_person6"
+                android:layout_toRightOf="@id/profile_inPIE_image"
+                android:layout_toEndOf="@id/profile_inPIE_image"
+                android:layout_alignTop="@id/profile_inPIE_image"
+                android:layout_alignBottom="@id/profile_inPIE_image"
                 android:id="@+id/profile_inPIE"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person7"
-                android:layout_below="@id/profile_person6"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_location_image"
+                android:layout_below="@id/profile_inPIE_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/location_icon"
+                android:contentDescription="@string/location_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_location"
                 android:layout_below="@id/profile_inPIE"
-                android:layout_toRightOf="@id/profile_person7"
-                android:layout_alignTop="@id/profile_person7"
-                android:layout_alignBottom="@id/profile_person7"
+                android:layout_toRightOf="@id/profile_location_image"
+                android:layout_toEndOf="@id/profile_location_image"
+                android:layout_alignTop="@id/profile_location_image"
+                android:layout_alignBottom="@id/profile_location_image"
                 android:id="@+id/profile_location"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person8"
-                android:layout_below="@id/profile_person7"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_promo_image"
+                android:layout_below="@id/profile_location_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/promo_icon"
+                android:contentDescription="@string/promo_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_promo"
                 android:layout_below="@id/profile_location"
-                android:layout_toRightOf="@id/profile_person8"
-                android:layout_alignTop="@id/profile_person8"
-                android:layout_alignBottom="@id/profile_person8"
+                android:layout_toRightOf="@id/profile_promo_image"
+                android:layout_toEndOf="@id/profile_promo_image"
+                android:layout_alignTop="@id/profile_promo_image"
+                android:layout_alignBottom="@id/profile_promo_image"
                 android:id="@+id/profile_promo"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person9"
-                android:layout_below="@id/profile_person8"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_status_image"
+                android:layout_below="@id/profile_promo_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/stats_icon"
+                android:contentDescription="@string/stats_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_status"
                 android:layout_below="@id/profile_promo"
-                android:layout_toRightOf="@id/profile_person9"
-                android:layout_alignTop="@id/profile_person9"
-                android:layout_alignBottom="@id/profile_person9"
+                android:layout_toRightOf="@id/profile_status_image"
+                android:layout_toEndOf="@id/profile_status_image"
+                android:layout_alignTop="@id/profile_status_image"
+                android:layout_alignBottom="@id/profile_status_image"
                 android:id="@+id/profile_status"/>
 
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
-                android:id="@+id/profile_person10"
-                android:layout_below="@id/profile_person9"
-                android:tint="@color/bright_foreground_disabled_material_dark"
-                android:src="@mipmap/person_icon"/>
+                android:id="@+id/profile_userdata_image"
+                android:layout_below="@id/profile_status_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/stats_icon"
+                android:contentDescription="@string/stats_description"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/profile_userdata"
                 android:layout_below="@id/profile_status"
-                android:layout_toRightOf="@id/profile_person10"
-                android:layout_alignTop="@id/profile_person10"
-                android:layout_alignBottom="@id/profile_person10"
-                android:id="@+id/profile_userdata"/>
+                android:layout_toEndOf="@id/profile_userdata_image"
+                android:layout_alignTop="@id/profile_userdata_image"
+                android:layout_alignBottom="@id/profile_userdata_image"
+                android:id="@+id/profile_userdata"
+                android:layout_toRightOf="@id/profile_userdata_image" />
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>
