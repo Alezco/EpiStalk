@@ -12,11 +12,11 @@ import java.util.HashSet;
 public class RequestManager
 {
     private static RequestManager ourInstance = new RequestManager();
-    private ArrayList<String> cisco;
-    private ArrayList<String> midlab;
-    private ArrayList<String> sr;
-    private ArrayList<String> sm14;
-    private ArrayList<String> other;
+    private ArrayList<User> cisco;
+    private ArrayList<User> midlab;
+    private ArrayList<User> sr;
+    private ArrayList<User> sm14;
+    private ArrayList<User> other;
     private ArrayList<Resfreshable> fragments;
 
     private RequestManager()
@@ -35,27 +35,27 @@ public class RequestManager
         return ourInstance;
     }
 
-    public ArrayList<String> getCisco()
+    public ArrayList<User> getCisco()
     {
         return cisco;
     }
 
-    public ArrayList<String> getMidlab()
+    public ArrayList<User> getMidlab()
     {
         return midlab;
     }
 
-    public ArrayList<String> getSr()
+    public ArrayList<User> getSr()
     {
         return sr;
     }
 
-    public ArrayList<String> getSm14()
+    public ArrayList<User> getSm14()
     {
         return sm14;
     }
 
-    public ArrayList<String> getOther()
+    public ArrayList<User> getOther()
     {
         return other;
     }
@@ -74,11 +74,11 @@ public class RequestManager
     public void connectServer()
     {
         clearLists();
-        HashSet<String> ciscoH = new HashSet<>();
-        HashSet<String> midH = new HashSet<>();
-        HashSet<String> srH = new HashSet<>();
-        HashSet<String> sm14H = new HashSet<>();
-        HashSet<String> otherH = new HashSet<>();
+        HashSet<User> ciscoH = new HashSet<>();
+        HashSet<User> midH = new HashSet<>();
+        HashSet<User> srH = new HashSet<>();
+        HashSet<User> sm14H = new HashSet<>();
+        HashSet<User> otherH = new HashSet<>();
         try
         {
             Socket socket = new Socket("ns-server.epita.fr", 4242);
@@ -119,24 +119,24 @@ public class RequestManager
         other.clear();
     }
 
-    private void fillLists(User user, HashSet<String> ciscoH, HashSet<String> midH,
-                           HashSet<String> srH, HashSet<String> sm14H, HashSet<String> otherH)
+    private void fillLists(User user, HashSet<User> ciscoH, HashSet<User> midH,
+                           HashSet<User> srH, HashSet<User> sm14H, HashSet<User> otherH)
     {
-        String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
+        //String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
         if (user.getIp().startsWith("10.224.32."))
-            ciscoH.add(userString);
+            ciscoH.add(user);
         else if (user.getIp().startsWith("10.224.33."))
-            midH.add(userString);
+            midH.add(user);
         else if (user.getIp().startsWith("10.224.34."))
-            srH.add(userString);
+            srH.add(user);
         else if (user.getIp().startsWith("10.224.35."))
-            sm14H.add(userString);
+            sm14H.add(user);
         else
-            otherH.add(userString);
+            otherH.add(user);
     }
 
-    private void removeDuplicates(HashSet<String> ciscoH, HashSet<String> midH,
-                                  HashSet<String> srH, HashSet<String> sm14H, HashSet<String> otherH)
+    private void removeDuplicates(HashSet<User> ciscoH, HashSet<User> midH,
+                                  HashSet<User> srH, HashSet<User> sm14H, HashSet<User> otherH)
     {
         cisco.addAll(ciscoH);
         midlab.addAll(midH);
