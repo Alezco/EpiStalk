@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import benjamin.epistalk.R;
@@ -57,12 +58,11 @@ public class TabFragment extends Fragment implements Resfreshable
             arrayList = RequestManager.getInstance().getSm14();
         if (pageNum == 5)
             arrayList = RequestManager.getInstance().getOther();
-        //java.util.Collections.sort(arrayList);
+        sortListByLogin();
         if (arrayList.size() == 0)
             textView.setVisibility(View.VISIBLE);
         else
             textView.setVisibility(View.INVISIBLE);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, arrayList);
         ListAdapter listAdapter = new ListAdapter(getActivity(), arrayList);
         assert listview != null;
         listview.setAdapter(listAdapter);
@@ -81,5 +81,32 @@ public class TabFragment extends Fragment implements Resfreshable
         super.onResume();
         RequestManager.getInstance().registerRefreshable(this);
         this.refresh();
+    }
+
+    private void sortListByLogin()
+    {
+        java.util.Collections.sort(arrayList, new Comparator<User>()
+        {
+            @Override
+            public int compare(User lhs, User rhs)
+            {
+                return lhs.getLogin().compareTo(rhs.getLogin());
+            }
+        });
+    }
+
+    private void sortListByPromo()
+    {
+        java.util.Collections.sort(arrayList, new Comparator<User>()
+        {
+            @Override
+            public int compare(User lhs, User rhs)
+            {
+                int tmp = lhs.getPromo().compareTo(rhs.getPromo());
+                if (tmp == 0)
+                    return lhs.getLogin().compareTo(rhs.getLogin());
+                return tmp;
+            }
+        });
     }
 }
