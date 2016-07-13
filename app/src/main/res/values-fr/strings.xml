@@ -37,4 +37,5 @@
     <string name="time_description">Logo d\'horloge</string>
     <string name="location_description">Logo de localisation</string>
     <string name="promo_description">Logo d\'école</string>
+    <string name="profile_sm">Salle machine :</string>
 </resources>

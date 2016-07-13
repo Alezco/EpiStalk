@@ -122,7 +122,6 @@ public class RequestManager
     private void fillLists(User user, HashSet<User> ciscoH, HashSet<User> midH,
                            HashSet<User> srH, HashSet<User> sm14H, HashSet<User> otherH)
     {
-        //String userString = user.getLogin() + " " + user.getIp() + " " + user.getPromo();
         if (user.getIp().startsWith("10.224.32."))
             ciscoH.add(user);
         else if (user.getIp().startsWith("10.224.33."))

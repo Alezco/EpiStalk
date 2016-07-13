@@ -3,9 +3,11 @@ package com.benja.epistalk;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,6 +44,7 @@ public class TabFragment extends Fragment implements Resfreshable
             }
         });
         swipeRefreshLayout.setColorSchemeColors(R.color.PrimaryColor);*/
+        handleProfiles(listview);
         return rootView;
     }
 
@@ -108,5 +111,22 @@ public class TabFragment extends Fragment implements Resfreshable
                 return tmp;
             }
         });
+    }
+
+    private void handleProfiles(final ListView listview)
+    {
+       listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+       {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+           {
+               Profile profile = new Profile();
+               Bundle bundle = new Bundle();
+               User user = (User) listview.getItemAtPosition(position);
+               bundle.putString("ItemLogin", user.getLogin());
+               profile.setArguments(bundle);
+               getFragmentManager().beginTransaction().replace(R.id.root_layout, new Profile()).commit();
+           }
+       });
     }
 }

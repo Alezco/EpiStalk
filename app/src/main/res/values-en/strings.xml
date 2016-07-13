@@ -37,4 +37,5 @@
     <string name="time_description">Time Logo</string>
     <string name="location_description">Location Logo</string>
     <string name="promo_description">School logo</string>
+    <string name="profile_sm">Machine room:</string>
 </resources>

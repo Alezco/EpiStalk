@@ -11,8 +11,8 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_login_image"
                 android:tint="@color/light_gray"
                 android:src="@mipmap/person_icon"
@@ -26,11 +26,12 @@
                 android:layout_toEndOf="@id/profile_login_image"
                 android:layout_alignTop="@id/profile_login_image"
                 android:layout_alignBottom="@id/profile_login_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_login"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_socket_image"
                 android:layout_below="@id/profile_login_image"
                 android:tint="@color/light_gray"
@@ -46,11 +47,12 @@
                 android:layout_toEndOf="@id/profile_socket_image"
                 android:layout_alignTop="@id/profile_socket_image"
                 android:layout_alignBottom="@id/profile_socket_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_socket"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_ip_image"
                 android:layout_below="@id/profile_socket_image"
                 android:tint="@color/light_gray"
@@ -66,11 +68,12 @@
                 android:layout_toEndOf="@id/profile_ip_image"
                 android:layout_alignTop="@id/profile_ip_image"
                 android:layout_alignBottom="@id/profile_ip_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_ip"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_timeConnection_image"
                 android:layout_below="@id/profile_ip_image"
                 android:tint="@color/light_gray"
@@ -86,11 +89,12 @@
                 android:layout_toEndOf="@id/profile_timeConnection_image"
                 android:layout_alignTop="@id/profile_timeConnection_image"
                 android:layout_alignBottom="@id/profile_timeConnection_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_timeConnection"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_lastStatusChange_image"
                 android:layout_below="@id/profile_timeConnection_image"
                 android:tint="@color/light_gray"
@@ -106,11 +110,12 @@
                 android:layout_toEndOf="@id/profile_lastStatusChange_image"
                 android:layout_alignTop="@id/profile_lastStatusChange_image"
                 android:layout_alignBottom="@id/profile_lastStatusChange_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_lastStatusChange"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_inPIE_image"
                 android:layout_below="@id/profile_lastStatusChange_image"
                 android:tint="@color/light_gray"
@@ -126,11 +131,12 @@
                 android:layout_toEndOf="@id/profile_inPIE_image"
                 android:layout_alignTop="@id/profile_inPIE_image"
                 android:layout_alignBottom="@id/profile_inPIE_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_inPIE"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_location_image"
                 android:layout_below="@id/profile_inPIE_image"
                 android:tint="@color/light_gray"
@@ -146,11 +152,12 @@
                 android:layout_toEndOf="@id/profile_location_image"
                 android:layout_alignTop="@id/profile_location_image"
                 android:layout_alignBottom="@id/profile_location_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_location"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_promo_image"
                 android:layout_below="@id/profile_location_image"
                 android:tint="@color/light_gray"
@@ -166,11 +173,12 @@
                 android:layout_toEndOf="@id/profile_promo_image"
                 android:layout_alignTop="@id/profile_promo_image"
                 android:layout_alignBottom="@id/profile_promo_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_promo"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_status_image"
                 android:layout_below="@id/profile_promo_image"
                 android:tint="@color/light_gray"
@@ -186,11 +194,12 @@
                 android:layout_toEndOf="@id/profile_status_image"
                 android:layout_alignTop="@id/profile_status_image"
                 android:layout_alignBottom="@id/profile_status_image"
+                android:textSize="20sp"
                 android:id="@+id/profile_status"/>
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:id="@+id/profile_userdata_image"
                 android:layout_below="@id/profile_status_image"
                 android:tint="@color/light_gray"
@@ -206,6 +215,28 @@
                 android:layout_alignTop="@id/profile_userdata_image"
                 android:layout_alignBottom="@id/profile_userdata_image"
                 android:id="@+id/profile_userdata"
+                android:textSize="20sp"
+                android:layout_toRightOf="@id/profile_userdata_image" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/profile_sm_image"
+                android:layout_below="@id/profile_userdata_image"
+                android:tint="@color/light_gray"
+                android:src="@mipmap/desktop_icon"
+                android:contentDescription="@string/sm_description"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile_sm"
+                android:layout_below="@id/profile_status"
+                android:layout_toEndOf="@id/profile_sm_image"
+                android:layout_alignTop="@id/profile_sm_image"
+                android:layout_alignBottom="@id/profile_sm_image"
+                android:id="@+id/profile_sm"
+                android:textSize="20sp"
                 android:layout_toRightOf="@id/profile_userdata_image" />
         </RelativeLayout>
     </ScrollView>
