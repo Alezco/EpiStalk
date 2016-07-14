@@ -67,7 +67,7 @@ public class Profile extends AppCompatActivity
         String inPIEText = context.getString(R.string.profile_inPIE) + " " + user.getInPIEAsString(context);
         String locationText = context.getString(R.string.profile_location) + " " + user.getLocationAsString(context);
         String promoText = context.getString(R.string.profile_promo) + " " + user.getPromo();
-        String statusText = context.getString(R.string.profile_status) + " " + user.getStatus();
+        String statusText = context.getString(R.string.profile_status) + " " + user.getStatusAsString();
         String userDataText = context.getString(R.string.profile_userdata) + " " + user.getUserDataAsString(context);
         String smText = context.getString(R.string.profile_sm) + " " + user.getSm(context);
 

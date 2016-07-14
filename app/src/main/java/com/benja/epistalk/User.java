@@ -61,16 +61,14 @@ public class User
 
     public String getTimeConnectionAsString()
     {
-        Date date = new Date(Long.parseLong(timeConnection));
-        Log.d("================", String.valueOf(Long.parseLong(timeConnection)));
+        Date date = new Date(Long.parseLong(timeConnection) * 1000);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.FRANCE);
         return dateFormat.format(date);
     }
 
     public String getLastStatusChangeAsString()
     {
-        Date date = new Date(Long.parseLong(lastStatusChange));
-        Log.d("================", String.valueOf(Long.parseLong(lastStatusChange)));
+        Date date = new Date(Long.parseLong(lastStatusChange) * 1000);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.FRANCE);
         return dateFormat.format(date);
     }
@@ -83,9 +81,9 @@ public class User
             return context.getResources().getString(R.string.no);
     }
 
-    public String getStatus()
+    public String getStatusAsString()
     {
-        return status;
+        return status.split(":")[0];
     }
 
     public String getLocationAsString(Context context)
