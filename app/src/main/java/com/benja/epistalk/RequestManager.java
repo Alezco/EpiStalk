@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class RequestManager
 {
@@ -81,11 +82,6 @@ public class RequestManager
     public void connectServer()
     {
         clearLists();
-        HashSet<User> ciscoH = new HashSet<>();
-        HashSet<User> midH = new HashSet<>();
-        HashSet<User> srH = new HashSet<>();
-        HashSet<User> sm14H = new HashSet<>();
-        HashSet<User> otherH = new HashSet<>();
         try
         {
             Socket socket = new Socket("ns-server.epita.fr", 4242);
@@ -107,10 +103,10 @@ public class RequestManager
                 User user = new User(split[0], split[1], split[2], split[3], split[4], split[5],
                                      split[8], split[9], split[10], split[11]);
                 mainList.add(user);
-                fillLists(user, ciscoH, midH, srH, sm14H, otherH);
+                fillLists(user, cisco, midlab, sr, sm14, other);
             }
             bufferedReader.close();
-            removeDuplicates(ciscoH, midH, srH, sm14H, otherH);
+            removeDuplicates(cisco, midlab, sr, sm14, other);
         }
         catch (IOException e)
         {
@@ -127,8 +123,8 @@ public class RequestManager
         other.clear();
     }
 
-    private void fillLists(User user, HashSet<User> ciscoH, HashSet<User> midH,
-                           HashSet<User> srH, HashSet<User> sm14H, HashSet<User> otherH)
+    private void fillLists(User user, ArrayList<User> ciscoH, ArrayList<User> midH,
+                           ArrayList<User> srH, ArrayList<User> sm14H, ArrayList<User> otherH)
     {
         if (user.getIp().startsWith("10.224.32."))
             ciscoH.add(user);
@@ -142,14 +138,17 @@ public class RequestManager
             otherH.add(user);
     }
 
-    private void removeDuplicates(HashSet<User> ciscoH, HashSet<User> midH,
-                                  HashSet<User> srH, HashSet<User> sm14H, HashSet<User> otherH)
+    @SafeVarargs
+    private final void removeDuplicates(ArrayList<User>... users)
     {
-        cisco.addAll(ciscoH);
-        midlab.addAll(midH);
-        sr.addAll(srH);
-        sm14.addAll(sm14H);
-        other.addAll(otherH);
+        for (ArrayList<User> i : users)
+        {
+            Map<String, User> map = new LinkedHashMap<>();
+            for (User u : i)
+                map.put(u.getIp(), u);
+            i.clear();
+            i.addAll(map.values());
+        }
     }
 
     public void registerRefreshable(Resfreshable resfreshable)
