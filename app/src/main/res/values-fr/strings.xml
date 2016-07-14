@@ -38,4 +38,5 @@
     <string name="location_description">Logo de localisation</string>
     <string name="promo_description">Logo d\'école</string>
     <string name="profile_sm">Salle machine :</string>
+    <string name="no_user">Impossible de trouver l\'utilisateur</string>
 </resources>

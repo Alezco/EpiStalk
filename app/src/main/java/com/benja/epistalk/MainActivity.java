@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity
             viewPager.setOffscreenPageLimit(0);
         }
 
-        setSupportActionBar(toolbar);
-
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener()

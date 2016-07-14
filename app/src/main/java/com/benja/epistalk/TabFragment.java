@@ -1,5 +1,6 @@
 package com.benja.epistalk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -120,12 +121,10 @@ public class TabFragment extends Fragment implements Resfreshable
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
            {
-               Profile profile = new Profile();
-               Bundle bundle = new Bundle();
                User user = (User) listview.getItemAtPosition(position);
-               bundle.putString("ItemLogin", user.getLogin());
-               profile.setArguments(bundle);
-               getFragmentManager().beginTransaction().replace(R.id.root_layout, new Profile()).commit();
+               Intent intent = new Intent(getContext(), Profile.class);
+               intent.putExtra("ItemLogin", user.getLogin());
+               startActivityForResult(intent, 0);
            }
        });
     }

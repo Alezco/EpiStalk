@@ -17,6 +17,7 @@ public class RequestManager
     private ArrayList<User> sr;
     private ArrayList<User> sm14;
     private ArrayList<User> other;
+    private ArrayList<User> mainList;
     private ArrayList<Resfreshable> fragments;
 
     private RequestManager()
@@ -27,6 +28,7 @@ public class RequestManager
         sm14 = new ArrayList<>();
         other = new ArrayList<>();
         fragments = new ArrayList<>();
+        mainList = new ArrayList<>();
         new ThreadConnect().execute();
     }
 
@@ -58,6 +60,11 @@ public class RequestManager
     public ArrayList<User> getOther()
     {
         return other;
+    }
+
+    public ArrayList<User> getMainList()
+    {
+        return mainList;
     }
 
     public void refresh()
@@ -99,6 +106,7 @@ public class RequestManager
                 String[] split = line.split(" ");
                 User user = new User(split[0], split[1], split[2], split[3], split[4], split[5],
                                      split[8], split[9], split[10], split[11]);
+                mainList.add(user);
                 fillLists(user, ciscoH, midH, srH, sm14H, otherH);
             }
             bufferedReader.close();

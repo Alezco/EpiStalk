@@ -1,5 +1,9 @@
 package com.benja.epistalk;
 
+import android.content.Context;
+
+import benjamin.epistalk.R;
+
 public class User
 {
     private String socket;
@@ -75,5 +79,19 @@ public class User
     public String getPromo()
     {
         return promo;
+    }
+
+    public String getSm(Context context)
+    {
+        if (ip.startsWith("10.224.32."))
+            return context.getResources().getString(R.string.sm_cisco);
+        else if (ip.startsWith("10.224.33."))
+            return context.getResources().getString(R.string.sm_midlab);
+        else if (ip.startsWith("10.224.34."))
+            return context.getResources().getString(R.string.sm_labsr);
+        else if (ip.startsWith("10.224.35."))
+            return context.getResources().getString(R.string.sm_sm14);
+        else
+            return context.getResources().getString(R.string.sm_other);
     }
 }
