@@ -51,13 +51,11 @@ public class ListAdapter extends BaseAdapter
             convertView = inflater.inflate(R.layout.user_item, parent, false);
 
         TextView userLogin = (TextView) convertView.findViewById(R.id.list_user_login);
-        TextView userIp = (TextView) convertView.findViewById(R.id.list_user_ip);
         TextView userPromo = (TextView) convertView.findViewById(R.id.list_user_promo);
 
         User user = users.get(position);
 
         userLogin.setText(user.getLogin());
-        userIp.setText(user.getIp());
         userPromo.setText(user.getPromo());
 
         return convertView;

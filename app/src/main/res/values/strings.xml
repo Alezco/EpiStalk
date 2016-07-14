@@ -16,7 +16,7 @@
     <string name="profile_login">Login:</string>
     <string name="profile_ip">IP Address: </string>
     <string name="profile_timeConnection">Connected at:</string>
-    <string name="profile_lastStatusChange">Last status change:</string>
+    <string name="profile_lastStatusChange">Status change:</string>
     <string name="profile_inPIE">Is in PIE: </string>
     <string name="profile_location">Location:</string>
     <string name="profile_promo">Promo:</string>

@@ -1,6 +1,14 @@
 package com.benja.epistalk;
 
 import android.content.Context;
+import android.util.Log;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import benjamin.epistalk.R;
 
@@ -31,13 +39,16 @@ public class User
         this.userData = userData;
     }
 
-    public String getUserData()
-    {
-        return userData;
-    }
-
     public String getUserDataAsString(Context context)
     {
+        try
+        {
+            userData = URLDecoder.decode(userData, "UTF-8");
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
         if (userData.equals("none"))
             return context.getResources().getString(R.string.unknown);
         return userData;
@@ -48,14 +59,20 @@ public class User
         return socket;
     }
 
-    public String getTimeConnection()
+    public String getTimeConnectionAsString()
     {
-        return timeConnection;
+        Date date = new Date(Long.parseLong(timeConnection));
+        Log.d("================", String.valueOf(Long.parseLong(timeConnection)));
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.FRANCE);
+        return dateFormat.format(date);
     }
 
-    public String getLastStatusChange()
+    public String getLastStatusChangeAsString()
     {
-        return lastStatusChange;
+        Date date = new Date(Long.parseLong(lastStatusChange));
+        Log.d("================", String.valueOf(Long.parseLong(lastStatusChange)));
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.FRANCE);
+        return dateFormat.format(date);
     }
 
     public String getInPIEAsString(Context context)
@@ -73,6 +90,14 @@ public class User
 
     public String getLocationAsString(Context context)
     {
+        try
+        {
+            userData = URLDecoder.decode(userData, "UTF-8");
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
         if (location.equals("none"))
             return context.getResources().getString(R.string.unknown);
         return location;

@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:label="@string/profile"
-                  android:name="com.benja.epistalk.Profile"/>
+                  android:name="com.benja.epistalk.Profile"
+                  android:parentActivityName="com.benja.epistalk.MainActivity"/>
     </application>
 
 </manifest>

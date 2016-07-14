@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,10 @@ public class Profile extends AppCompatActivity
         setContentView(R.layout.profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
         setTextViews();
     }
 
@@ -56,8 +62,8 @@ public class Profile extends AppCompatActivity
         String loginText = context.getString(R.string.profile_login) + " " + user.getLogin();
         String socketText = context.getString(R.string.profile_socket) + " " + user.getSocket();
         String ipText = context.getString(R.string.profile_ip) + " " + user.getIp();
-        String timeConnectionText = context.getString(R.string.profile_timeConnection) + " " + user.getTimeConnection();
-        String lastStatusChangeText = context.getString(R.string.profile_lastStatusChange) + " " + user.getLastStatusChange();
+        String timeConnectionText = context.getString(R.string.profile_timeConnection) + " " + user.getTimeConnectionAsString();
+        String lastStatusChangeText = context.getString(R.string.profile_lastStatusChange) + " " + user.getLastStatusChangeAsString();
         String inPIEText = context.getString(R.string.profile_inPIE) + " " + user.getInPIEAsString(context);
         String locationText = context.getString(R.string.profile_location) + " " + user.getLocationAsString(context);
         String promoText = context.getString(R.string.profile_promo) + " " + user.getPromo();
