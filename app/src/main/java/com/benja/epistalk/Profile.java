@@ -1,5 +1,6 @@
 package com.benja.epistalk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,18 +27,20 @@ public class Profile extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
         return true;
     }
 
     private void setTextViews()
     {
+        Context context = getApplicationContext();
         User user = getUser();
         if (user == null)
         {
-            Toast.makeText(getApplicationContext(), R.string.no_user, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.no_user, Toast.LENGTH_SHORT).show();
             return;
         }
+
         TextView loginTextView = (TextView) findViewById(R.id.profile_login);
         TextView socketTextView = (TextView) findViewById(R.id.profile_socket);
         TextView ipTextView = (TextView) findViewById(R.id.profile_ip);
@@ -50,17 +53,17 @@ public class Profile extends AppCompatActivity
         TextView userdataTextView = (TextView) findViewById(R.id.profile_userdata);
         TextView smTextView = (TextView) findViewById(R.id.profile_sm);
 
-        String loginText = getApplicationContext().getString(R.string.profile_login) + " " + user.getLogin();
-        String socketText = getApplicationContext().getString(R.string.profile_socket) + " " + user.getSocket();
-        String ipText = getApplicationContext().getString(R.string.profile_ip) + " " + user.getIp();
-        String timeConnectionText = getApplicationContext().getString(R.string.profile_timeConnection) + " " + user.getTimeConnection();
-        String lastStatusChangeText = getApplicationContext().getString(R.string.profile_lastStatusChange) + " " + user.getLastStatusChange();
-        String inPIEText = getApplicationContext().getString(R.string.profile_inPIE) + " " + user.getInPIE();
-        String locationText = getApplicationContext().getString(R.string.profile_location) + " " + user.getLocation();
-        String promoText = getApplicationContext().getString(R.string.profile_promo) + " " + user.getPromo();
-        String statusText = getApplicationContext().getString(R.string.profile_status) + " " + user.getStatus();
-        String userDataText = getApplicationContext().getString(R.string.profile_userdata) + " " + user.getUserData();
-        String smText = getApplicationContext().getString(R.string.profile_sm) + " " + user.getSm(getApplicationContext());
+        String loginText = context.getString(R.string.profile_login) + " " + user.getLogin();
+        String socketText = context.getString(R.string.profile_socket) + " " + user.getSocket();
+        String ipText = context.getString(R.string.profile_ip) + " " + user.getIp();
+        String timeConnectionText = context.getString(R.string.profile_timeConnection) + " " + user.getTimeConnection();
+        String lastStatusChangeText = context.getString(R.string.profile_lastStatusChange) + " " + user.getLastStatusChange();
+        String inPIEText = context.getString(R.string.profile_inPIE) + " " + user.getInPIEAsString(context);
+        String locationText = context.getString(R.string.profile_location) + " " + user.getLocationAsString(context);
+        String promoText = context.getString(R.string.profile_promo) + " " + user.getPromo();
+        String statusText = context.getString(R.string.profile_status) + " " + user.getStatus();
+        String userDataText = context.getString(R.string.profile_userdata) + " " + user.getUserDataAsString(context);
+        String smText = context.getString(R.string.profile_sm) + " " + user.getSm(context);
 
         assert loginTextView != null;
         assert socketTextView != null;

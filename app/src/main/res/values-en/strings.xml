@@ -19,7 +19,7 @@
     <string name="sm_cisco">Cisco:</string>
     <string name="sm_description">Screen Logo</string>
     <string name="sm_labsr">Lab-SR:</string>
-    <string name="sm_midlab">Mid-lab:</string>
+    <string name="sm_midlab">Mid-Lab:</string>
     <string name="sm_other">Other:</string>
     <string name="sm_othertotal">Total with other:</string>
     <string name="sm_sm14">SM-14:</string>
@@ -29,7 +29,7 @@
     <string name="vp_cisco">Cisco (</string>
     <string name="vp_close">)</string>
     <string name="vp_home">Home</string>
-    <string name="vp_midlab">Mid-lab (</string>
+    <string name="vp_midlab">Mid-Lab (</string>
     <string name="vp_other">Other (</string>
     <string name="vp_sm14">SM-14 (</string>
     <string name="vp_sr">Lab-SR (</string>
@@ -39,4 +39,12 @@
     <string name="promo_description">School logo</string>
     <string name="profile_sm">Machine room:</string>
     <string name="no_user">Unable to find user</string>
+    <string name="profile_cisco">Cisco</string>
+    <string name="profile_midlab">Mid-Lab</string>
+    <string name="profile_other">Other</string>
+    <string name="profile_sm14">SM-14</string>
+    <string name="profile_sr">Lab-SR</string>
+    <string name="no">No</string>
+    <string name="unknown">Unknown</string>
+    <string name="yes">Yes</string>
 </resources>

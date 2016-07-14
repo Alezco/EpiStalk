@@ -28,7 +28,7 @@
     <string name="refreshing">Actualisation en cours…</string>
     <string name="vp_cisco">Cisco (</string>
     <string name="vp_close">)</string>
-    <string name="vp_midlab">Mid-lab (</string>
+    <string name="vp_midlab">Mid-Lab (</string>
     <string name="vp_sm14">SM-14 (</string>
     <string name="vp_sr">Lab-SR (</string>
     <string name="vp_home">Accueil</string>
@@ -39,4 +39,12 @@
     <string name="promo_description">Logo d\'école</string>
     <string name="profile_sm">Salle machine :</string>
     <string name="no_user">Impossible de trouver l\'utilisateur</string>
+    <string name="profile_cisco">Cisco</string>
+    <string name="profile_midlab">Mid-Lab</string>
+    <string name="profile_other">Autre</string>
+    <string name="profile_sm14">SM-14</string>
+    <string name="profile_sr">Lab-SR</string>
+    <string name="no">Non</string>
+    <string name="unknown">Inconnu</string>
+    <string name="yes">Oui</string>
 </resources>

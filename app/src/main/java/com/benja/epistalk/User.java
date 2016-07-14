@@ -36,6 +36,13 @@ public class User
         return userData;
     }
 
+    public String getUserDataAsString(Context context)
+    {
+        if (userData.equals("none"))
+            return context.getResources().getString(R.string.unknown);
+        return userData;
+    }
+
     public String getSocket()
     {
         return socket;
@@ -51,9 +58,12 @@ public class User
         return lastStatusChange;
     }
 
-    public String getInPIE()
+    public String getInPIEAsString(Context context)
     {
-        return inPIE;
+        if (inPIE.equals("3"))
+            return context.getResources().getString(R.string.yes);
+        else
+            return context.getResources().getString(R.string.no);
     }
 
     public String getStatus()
@@ -61,8 +71,10 @@ public class User
         return status;
     }
 
-    public String getLocation()
+    public String getLocationAsString(Context context)
     {
+        if (location.equals("none"))
+            return context.getResources().getString(R.string.unknown);
         return location;
     }
 
@@ -84,14 +96,14 @@ public class User
     public String getSm(Context context)
     {
         if (ip.startsWith("10.224.32."))
-            return context.getResources().getString(R.string.sm_cisco);
+            return context.getResources().getString(R.string.profile_cisco);
         else if (ip.startsWith("10.224.33."))
-            return context.getResources().getString(R.string.sm_midlab);
+            return context.getResources().getString(R.string.profile_midlab);
         else if (ip.startsWith("10.224.34."))
-            return context.getResources().getString(R.string.sm_labsr);
+            return context.getResources().getString(R.string.profile_sr);
         else if (ip.startsWith("10.224.35."))
-            return context.getResources().getString(R.string.sm_sm14);
+            return context.getResources().getString(R.string.profile_sm14);
         else
-            return context.getResources().getString(R.string.sm_other);
+            return context.getResources().getString(R.string.profile_other);
     }
 }
