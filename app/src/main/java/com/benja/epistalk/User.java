@@ -1,7 +1,6 @@
 package com.benja.epistalk;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -90,7 +89,7 @@ public class User
     {
         try
         {
-            userData = URLDecoder.decode(userData, "UTF-8");
+            location = URLDecoder.decode(location, "UTF-8");
         }
         catch (UnsupportedEncodingException e)
         {
