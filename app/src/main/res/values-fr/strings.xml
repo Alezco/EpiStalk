@@ -8,13 +8,13 @@
     <string name="home_description">Logo d\'accueil</string>
     <string name="profile_inPIE">Est dans le PIE :</string>
     <string name="profile_ip">Adresse IP :</string>
-    <string name="profile_lastStatusChange">Modif statut :</string>
+    <string name="profile_lastStatusChange">Dernière modification de statut :</string>
     <string name="profile_location">Lieu :</string>
     <string name="profile_login">Login :</string>
     <string name="profile_promo">Promo :</string>
     <string name="profile_socket">Socket :</string>
     <string name="profile_status">Statut :</string>
-    <string name="profile_timeConnection">Connecté à :</string>
+    <string name="profile_timeConnection">Connecté le :</string>
     <string name="profile_userdata"> Données utilisateur :</string>
     <string name="sm_cisco">Cisco :</string>
     <string name="sm_description">Logo d\'écran</string>
@@ -33,7 +33,7 @@
     <string name="vp_sr">Lab-SR (</string>
     <string name="vp_home">Accueil</string>
     <string name="vp_other">Autre (</string>
-    <string name="person_description">Logo de person</string>
+    <string name="person_description">Logo de personne</string>
     <string name="time_description">Logo d\'horloge</string>
     <string name="location_description">Logo de localisation</string>
     <string name="promo_description">Logo d\'école</string>
