@@ -81,7 +81,7 @@ public class RequestManager
 
     public void connectServer()
     {
-        clearLists();
+        clearLists(cisco, midlab, sr, sm14, other);
         try
         {
             Socket socket = new Socket("ns-server.epita.fr", 4242);
@@ -114,13 +114,11 @@ public class RequestManager
         }
     }
 
-    private void clearLists()
+    @SafeVarargs
+    private final void clearLists(ArrayList<User>... users)
     {
-        cisco.clear();
-        midlab.clear();
-        sr.clear();
-        sm14.clear();
-        other.clear();
+        for (ArrayList<User> u : users)
+            u.clear();
     }
 
     private void fillLists(User user, ArrayList<User> ciscoH, ArrayList<User> midH,

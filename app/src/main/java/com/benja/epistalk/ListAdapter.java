@@ -52,11 +52,13 @@ public class ListAdapter extends BaseAdapter
 
         TextView userLogin = (TextView) convertView.findViewById(R.id.list_user_login);
         TextView userPromo = (TextView) convertView.findViewById(R.id.list_user_promo);
+        TextView userIP = (TextView) convertView.findViewById(R.id.list_user_ip);
 
         User user = users.get(position);
 
         userLogin.setText(user.getLogin());
         userPromo.setText(user.getPromo());
+        userIP.setText(user.getIp());
 
         return convertView;
     }

@@ -62,8 +62,8 @@ public class Profile extends AppCompatActivity
         String loginText = context.getString(R.string.profile_login) + " " + user.getLogin();
         String socketText = context.getString(R.string.profile_socket) + " " + user.getSocket();
         String ipText = context.getString(R.string.profile_ip) + " " + user.getIp();
-        String timeConnectionText = context.getString(R.string.profile_timeConnection) + " " + user.getTimeConnectionAsString();
-        String lastStatusChangeText = context.getString(R.string.profile_lastStatusChange) + " " + user.getLastStatusChangeAsString();
+        String timeConnectionText = context.getString(R.string.profile_timeConnection) + " " + user.getTimeConnectionAsString(context);
+        String lastStatusChangeText = context.getString(R.string.profile_lastStatusChange) + " " + user.getLastStatusChangeAsString(context);
         String inPIEText = context.getString(R.string.profile_inPIE) + " " + user.getInPIEAsString(context);
         String locationText = context.getString(R.string.profile_location) + " " + user.getLocationAsString(context);
         String promoText = context.getString(R.string.profile_promo) + " " + user.getPromo();
@@ -99,10 +99,10 @@ public class Profile extends AppCompatActivity
     private User getUser()
     {
         Intent intent = getIntent();
-        String userLogin =  (String) intent.getExtras().get("ItemLogin");
+        String userIp =  (String) intent.getExtras().get("ItemIp");
         User user = null;
         for (User u : RequestManager.getInstance().getMainList())
-            if (u.getLogin().equals(userLogin))
+            if (u.getIp().equals(userIp))
                 user = u;
         return user;
     }

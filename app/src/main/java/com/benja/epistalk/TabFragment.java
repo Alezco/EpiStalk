@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import benjamin.epistalk.R;
 public class TabFragment extends Fragment implements Resfreshable
 {
     private TextView textView;
+    private ImageView imageView;
     private int pageNum;
     private List<User> arrayList;
     private ListView listview;
@@ -30,7 +32,8 @@ public class TabFragment extends Fragment implements Resfreshable
     {
         View rootView = inflater.inflate(R.layout.tabs, container, false);
         listview = (ListView) rootView.findViewById(R.id.list_sm);
-        textView = (TextView) rootView.findViewById(R.id.textView9);
+        textView = (TextView) rootView.findViewById(R.id.textView_noone);
+        imageView = (ImageView) rootView.findViewById(R.id.noone_sm);
         arrayList = new ArrayList<>();
 
         pageNum = this.getArguments().getInt("pageNum");
@@ -64,9 +67,15 @@ public class TabFragment extends Fragment implements Resfreshable
             arrayList = RequestManager.getInstance().getOther();
         sortListByLogin();
         if (arrayList.size() == 0)
+        {
             textView.setVisibility(View.VISIBLE);
+            imageView.setVisibility(View.VISIBLE);
+        }
         else
+        {
             textView.setVisibility(View.INVISIBLE);
+            imageView.setVisibility(View.INVISIBLE);
+        }
         ListAdapter listAdapter = new ListAdapter(getActivity(), arrayList);
         assert listview != null;
         listview.setAdapter(listAdapter);
@@ -114,6 +123,21 @@ public class TabFragment extends Fragment implements Resfreshable
         });
     }
 
+    private void sortListByIp()
+    {
+        java.util.Collections.sort(arrayList, new Comparator<User>()
+        {
+            @Override
+            public int compare(User lhs, User rhs)
+            {
+                int tmp = lhs.getIp().compareTo(rhs.getIp());
+                if (tmp == 0)
+                    return lhs.getLogin().compareTo(rhs.getLogin());
+                return tmp;
+            }
+        });
+    }
+
     private void handleProfiles(final ListView listview)
     {
        listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -123,7 +147,7 @@ public class TabFragment extends Fragment implements Resfreshable
            {
                User user = (User) listview.getItemAtPosition(position);
                Intent intent = new Intent(getContext(), Profile.class);
-               intent.putExtra("ItemLogin", user.getLogin());
+               intent.putExtra("ItemIp", user.getIp());
                startActivityForResult(intent, 0);
            }
        });

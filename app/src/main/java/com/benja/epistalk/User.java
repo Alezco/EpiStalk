@@ -58,17 +58,17 @@ public class User
         return socket;
     }
 
-    public String getTimeConnectionAsString()
+    public String getTimeConnectionAsString(Context context)
     {
         Date date = new Date(Long.parseLong(timeConnection) * 1000);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.FRANCE);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy " + context.getResources().getString(R.string.at) + " HH:mm:ss", Locale.FRANCE);
         return dateFormat.format(date);
     }
 
-    public String getLastStatusChangeAsString()
+    public String getLastStatusChangeAsString(Context context)
     {
         Date date = new Date(Long.parseLong(lastStatusChange) * 1000);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.FRANCE);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy " + context.getResources().getString(R.string.at) + " HH:mm:ss", Locale.FRANCE);
         return dateFormat.format(date);
     }
 

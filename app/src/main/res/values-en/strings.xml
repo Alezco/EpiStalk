@@ -48,4 +48,6 @@
     <string name="unknown">Unknown</string>
     <string name="yes">Yes</string>
     <string name="profile">Profile</string>
+    <string name="noone_sm">No logo</string>
+    <string name="at">at</string>
 </resources>
