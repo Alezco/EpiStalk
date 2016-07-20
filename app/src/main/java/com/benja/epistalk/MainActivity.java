@@ -77,4 +77,11 @@ public class MainActivity extends AppCompatActivity
         }
         return /*id == R.id.action_settings ||*/ super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onResume()
+    {
+        RequestManager.getInstance().doRefresh();
+        super.onResume();
+    }
 }
