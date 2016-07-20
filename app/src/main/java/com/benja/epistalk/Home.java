@@ -1,6 +1,7 @@
 package com.benja.epistalk;
 
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import benjamin.epistalk.R;
 
@@ -110,12 +115,12 @@ public class Home extends Fragment implements Resfreshable
         int totallen = ciscolen + midlen + srlen + sm14len;
         int othertotallen = totallen + otherlen;
 
-        String ciscotext = getResources().getString(R.string.sm_cisco) + " " + ciscolen;
-        String midtext = getResources().getString(R.string.sm_midlab) + " " + midlen;
-        String srtext = getResources().getString(R.string.sm_labsr) + " " + srlen;
-        String sm14text = getResources().getString(R.string.sm_sm14) + " " + sm14len;
+        String ciscotext = getResources().getString(R.string.sm_cisco) + " " + ciscolen + smDetails(RequestManager.getInstance().getCisco());
+        String midtext = getResources().getString(R.string.sm_midlab) + " " + midlen + smDetails(RequestManager.getInstance().getMidlab());
+        String srtext = getResources().getString(R.string.sm_labsr) + " " + srlen + smDetails(RequestManager.getInstance().getSr());
+        String sm14text = getResources().getString(R.string.sm_sm14) + " " + sm14len + smDetails(RequestManager.getInstance().getSm14());
         String totaltext = getResources().getString(R.string.sm_total) + " " + totallen;
-        String othertext = getResources().getString(R.string.sm_other) + " " + otherlen;
+        String othertext = getResources().getString(R.string.sm_other) + " " + otherlen + smDetails(RequestManager.getInstance().getOther());
         String othertotaltext = getResources().getString(R.string.sm_othertotal) + " " + othertotallen;
 
         cisco.setText(ciscotext);
@@ -140,5 +145,24 @@ public class Home extends Fragment implements Resfreshable
         super.onResume();
         RequestManager.getInstance().registerRefreshable(this);
         this.refresh();
+    }
+
+    private String smDetails(ArrayList<User> users)
+    {
+        HashMap<String, Integer> map = new HashMap<>();
+        for (User u : users)
+        {
+            if (!map.containsKey(u.getPromo()))
+                map.put(u.getPromo(), 1);
+            else
+                map.put(u.getPromo(), map.get(u.getPromo()) + 1);
+        }
+        String res = "";
+        if (!map.isEmpty())
+            res = System.getProperty("line.separator") + System.getProperty("line.separator");
+        for (Map.Entry<String, Integer> e : map.entrySet())
+            res += e.getValue() + " " + e.getKey() + System.getProperty("line.separator");
+
+        return res;
     }
 }
