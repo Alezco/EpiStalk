@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import benjamin.epistalk.R;
 
@@ -157,10 +158,11 @@ public class Home extends Fragment implements Resfreshable
             else
                 map.put(u.getPromo(), map.get(u.getPromo()) + 1);
         }
+        Map<String, Integer> newMap = new TreeMap<String, Integer>(map);
         String res = "";
-        if (!map.isEmpty())
+        if (!newMap.isEmpty())
             res = System.getProperty("line.separator") + System.getProperty("line.separator");
-        for (Map.Entry<String, Integer> e : map.entrySet())
+        for (Map.Entry<String, Integer> e : newMap.entrySet())
             res += e.getValue() + " " + e.getKey() + System.getProperty("line.separator");
 
         return res;
