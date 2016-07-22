@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.benja.epistalk.connection.RequestManager;
+import com.benja.epistalk.tabs.ViewPagerAdapter;
+
 import benjamin.epistalk.R;
 
 public class MainActivity extends AppCompatActivity

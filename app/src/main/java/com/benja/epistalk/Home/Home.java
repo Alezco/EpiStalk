@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package com.benja.epistalk.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.benja.epistalk.connection.RequestManager;
+import com.benja.epistalk.connection.Resfreshable;
+import com.benja.epistalk.connection.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

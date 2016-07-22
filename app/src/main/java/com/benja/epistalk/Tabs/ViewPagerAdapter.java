@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package com.benja.epistalk.tabs;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -11,6 +11,9 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
+
+import com.benja.epistalk.home.Home;
+import com.benja.epistalk.connection.RequestManager;
 
 import benjamin.epistalk.R;
 

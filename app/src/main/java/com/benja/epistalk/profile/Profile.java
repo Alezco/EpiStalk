@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package com.benja.epistalk.profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.benja.epistalk.connection.RequestManager;
+import com.benja.epistalk.connection.User;
 
 import benjamin.epistalk.R;
 

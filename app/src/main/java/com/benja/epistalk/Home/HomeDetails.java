@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package com.benja.epistalk.home;
 
 import android.widget.ImageView;
 import android.widget.TextView;

@@ -1,4 +1,4 @@
-package com.benja.epistalk;
+package com.benja.epistalk.tabs;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.benja.epistalk.connection.User;
 
 import java.util.List;
 
