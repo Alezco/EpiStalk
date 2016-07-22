@@ -2,8 +2,6 @@ package com.benja.epistalk.connection;
 
 import android.os.AsyncTask;
 
-import com.benja.epistalk.connection.RequestManager;
-
 public class ThreadConnect extends AsyncTask<Void, Integer, Void>
 {
     @Override
