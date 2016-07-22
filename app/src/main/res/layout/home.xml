@@ -58,6 +58,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_toRightOf="@id/cisco_image"
                         android:layout_toEndOf="@id/cisco_image"
+                        android:textSize="16sp"
                         android:visibility="gone"/>
 
                     <ImageView
@@ -123,6 +124,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_toRightOf="@id/midlab_image"
                         android:layout_toEndOf="@id/midlab_image"
+                        android:textSize="16sp"
                         android:visibility="gone"/>
 
                     <ImageView
@@ -187,6 +189,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_toRightOf="@id/sr_image"
                         android:layout_toEndOf="@id/sr_image"
+                        android:textSize="16sp"
                         android:visibility="gone"/>
 
                     <ImageView
@@ -251,6 +254,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_toRightOf="@id/sm14_image"
                         android:layout_toEndOf="@id/sm14_image"
+                        android:textSize="16sp"
                         android:visibility="gone"/>
 
                     <ImageView
@@ -315,8 +319,8 @@
                         android:layout_marginStart="16dp"
                         android:layout_toRightOf="@id/other_image"
                         android:layout_toEndOf="@id/other_image"
+                        android:textSize="16sp"
                         android:visibility="gone"/>
-
                     <ImageView
                         android:layout_width="45dp"
                         android:layout_height="45dp"

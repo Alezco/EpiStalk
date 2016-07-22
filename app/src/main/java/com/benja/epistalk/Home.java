@@ -5,10 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,18 +31,6 @@ public class Home extends Fragment implements Resfreshable
     private TextView other;
     private TextView othertotal;
 
-    /*private TextView ciscoDetails;
-    private TextView midDetails;
-    private TextView srDetails;
-    private TextView sm14Details;
-    private TextView otherDetails;
-
-    private ImageView ciscoArrow;
-    private ImageView midArrow;
-    private ImageView srArrow;
-    private ImageView sm14Arrow;
-    private ImageView otherArrow;*/
-
     private boolean ciscoBool;
     private boolean midBool;
     private boolean srBool;
@@ -52,6 +42,9 @@ public class Home extends Fragment implements Resfreshable
     private HomeDetails srHomeDetails;
     private HomeDetails sm14HomeDetails;
     private HomeDetails otherHomeDetails;
+
+    private Animation animation;
+    private Animation animationBack;
 
     @Nullable
     @Override
@@ -66,23 +59,17 @@ public class Home extends Fragment implements Resfreshable
         other = (TextView) self.findViewById(R.id.textView6);
         othertotal = (TextView) self.findViewById(R.id.textView8);
 
-        ciscoHomeDetails = new HomeDetails(RequestManager.getInstance().getCisco(), (TextView) self.findViewById(R.id.cisco_details), (ImageView) self.findViewById(R.id.cisco_arrow));
-        midlabHomeDetails = new HomeDetails(RequestManager.getInstance().getMidlab(), (TextView) self.findViewById(R.id.midlab_details), (ImageView) self.findViewById(R.id.midlab_arrow));
-        srHomeDetails = new HomeDetails(RequestManager.getInstance().getSr(), (TextView) self.findViewById(R.id.sr_details), (ImageView) self.findViewById(R.id.sr_arrow));
-        sm14HomeDetails = new HomeDetails(RequestManager.getInstance().getSm14(), (TextView) self.findViewById(R.id.sm14_details), (ImageView) self.findViewById(R.id.sm14_arrow));
-        otherHomeDetails = new HomeDetails(RequestManager.getInstance().getOther(), (TextView) self.findViewById(R.id.other_details), (ImageView) self.findViewById(R.id.other_arrow));
+        ciscoHomeDetails = new HomeDetails((TextView) self.findViewById(R.id.cisco_details), (ImageView) self.findViewById(R.id.cisco_arrow));
+        midlabHomeDetails = new HomeDetails((TextView) self.findViewById(R.id.midlab_details), (ImageView) self.findViewById(R.id.midlab_arrow));
+        srHomeDetails = new HomeDetails((TextView) self.findViewById(R.id.sr_details), (ImageView) self.findViewById(R.id.sr_arrow));
+        sm14HomeDetails = new HomeDetails((TextView) self.findViewById(R.id.sm14_details), (ImageView) self.findViewById(R.id.sm14_arrow));
+        otherHomeDetails = new HomeDetails((TextView) self.findViewById(R.id.other_details), (ImageView) self.findViewById(R.id.other_arrow));
 
-        /*ciscoDetails = (TextView) self.findViewById(R.id.cisco_details);
-        midDetails = (TextView) self.findViewById(R.id.midlab_details);
-        srDetails = (TextView) self.findViewById(R.id.sr_details);
-        sm14Details = (TextView) self.findViewById(R.id.sm14_details);
-        otherDetails = (TextView) self.findViewById(R.id.other_details);
-
-        ciscoArrow = (ImageView) self.findViewById(R.id.cisco_arrow);
-        midArrow = (ImageView) self.findViewById(R.id.midlab_arrow);
-        srArrow = (ImageView) self.findViewById(R.id.sr_arrow);
-        sm14Arrow = (ImageView) self.findViewById(R.id.sm14_arrow);
-        otherArrow = (ImageView) self.findViewById(R.id.other_arrow);*/
+        animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate_picture);
+        animationBack = AnimationUtils.loadAnimation(getContext(), R.anim.rotate_back);
+        animationBack.setDuration(500);
+        animation.setDuration(500);
+        animation.setFillAfter(true);
 
         refresh();
         handleCards(self);
@@ -184,37 +171,6 @@ public class Home extends Fragment implements Resfreshable
         handleDetails();
     }
 
-    /*private void setArrowListener(final HomeDetails homeDetails)
-    {
-        ArrayList<User> sm = homeDetails.getSm();
-        ImageView arrow = homeDetails.getArrow();
-        if (sm.size() != 0)
-            arrow.setVisibility(View.VISIBLE);
-        arrow.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-               handleClick(homeDetails);
-            }
-        });
-    }
-
-    private void handleClick(HomeDetails homeDetails)
-    {
-        ImageView details = homeDetails.getArrow();
-        if (!bool)
-        {
-            details.setVisibility(View.VISIBLE);
-            bool = true;
-        }
-        else
-        {
-            details.setVisibility(View.GONE);
-            bool = false;
-        }
-    }*/
-
     private void displayArrows()
     {
         if (RequestManager.getInstance().getCisco().size() != 0)
@@ -237,15 +193,18 @@ public class Home extends Fragment implements Resfreshable
             @Override
             public void onClick(View view)
             {
+                ImageView arrow = ciscoHomeDetails.getArrow();
                 ImageView details = ciscoHomeDetails.getArrow();
                 if (!ciscoBool)
                 {
                     details.setVisibility(View.VISIBLE);
+                    arrow.startAnimation(animation);
                     ciscoBool = true;
                 }
                 else
                 {
                     details.setVisibility(View.GONE);
+                    arrow.startAnimation(animationBack);
                     ciscoBool = false;
                 }
             }
@@ -256,15 +215,18 @@ public class Home extends Fragment implements Resfreshable
             @Override
             public void onClick(View view)
             {
+                ImageView arrow = midlabHomeDetails.getArrow();
                 TextView details = midlabHomeDetails.getDetails();
                 if (!midBool)
                 {
                     details.setVisibility(View.VISIBLE);
+                    arrow.startAnimation(animation);
                     midBool = true;
                 }
                 else
                 {
                     details.setVisibility(View.GONE);
+                    arrow.startAnimation(animationBack);
                     midBool = false;
                 }
             }
@@ -275,15 +237,18 @@ public class Home extends Fragment implements Resfreshable
             @Override
             public void onClick(View view)
             {
+                ImageView arrow = srHomeDetails.getArrow();
                 TextView details = srHomeDetails.getDetails();
                 if (!srBool)
                 {
                     details.setVisibility(View.VISIBLE);
+                    arrow.startAnimation(animation);
                     srBool = true;
                 }
                 else
                 {
                     details.setVisibility(View.GONE);
+                    arrow.startAnimation(animationBack);
                     srBool = false;
                 }
             }
@@ -294,15 +259,18 @@ public class Home extends Fragment implements Resfreshable
             @Override
             public void onClick(View view)
             {
+                ImageView arrow = sm14HomeDetails.getArrow();
                 TextView details = sm14HomeDetails.getDetails();
                 if (!sm14Bool)
                 {
                     details.setVisibility(View.VISIBLE);
+                    arrow.startAnimation(animation);
                     sm14Bool = true;
                 }
                 else
                 {
                     details.setVisibility(View.GONE);
+                    arrow.startAnimation(animationBack);
                     sm14Bool = false;
                 }
             }
@@ -313,15 +281,18 @@ public class Home extends Fragment implements Resfreshable
             @Override
             public void onClick(View view)
             {
+                ImageView arrow = otherHomeDetails.getArrow();
                 TextView details = otherHomeDetails.getDetails();
                 if (!otherBool)
                 {
                     details.setVisibility(View.VISIBLE);
+                    arrow.startAnimation(animation);
                     otherBool = true;
                 }
                 else
                 {
                     details.setVisibility(View.GONE);
+                    arrow.startAnimation(animationBack);
                     otherBool = false;
                 }
             }
@@ -353,7 +324,7 @@ public class Home extends Fragment implements Resfreshable
             else
                 map.put(u.getPromo(), map.get(u.getPromo()) + 1);
         }
-        Map<String, Integer> newMap = new TreeMap<String, Integer>(map);
+        Map<String, Integer> newMap = new TreeMap<>(map);
         String res = "";
         if (!newMap.isEmpty())
             res = System.getProperty("line.separator");
