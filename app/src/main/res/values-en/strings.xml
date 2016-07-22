@@ -50,4 +50,5 @@
     <string name="profile">Profile</string>
     <string name="noone_sm">No logo</string>
     <string name="at">at</string>
+    <string name="arrow_description">Arrow logo</string>
 </resources>

@@ -50,4 +50,5 @@
     <string name="profile">Profil</string>
     <string name="noone_sm">Logo négatif</string>
     <string name="at">à</string>
+    <string name="arrow_description">Logo de flèche</string>
 </resources>

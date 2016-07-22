@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -35,20 +35,45 @@
                         android:paddingEnd="0dp"
                         android:paddingRight="0dp"
                         android:paddingTop="10dp"
-                        android:contentDescription="@string/home_description"
-                         />
+                        android:contentDescription="@string/home_description" />
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_cisco"
                         android:id="@+id/textView2"
-                        android:layout_weight="0.02"
+                        android:layout_toEndOf="@id/cisco_image"
+                        android:layout_toRightOf="@id/cisco_image"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginLeft="16dp" />
-                </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cisco_details"
+                        android:layout_below="@id/textView2"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toRightOf="@id/cisco_image"
+                        android:layout_toEndOf="@id/cisco_image"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/cisco_arrow"
+                        android:contentDescription="@string/arrow_description"
+                        android:tint="@color/light_gray"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:paddingTop="15dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/arrow_down_icon"/>
+                </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 
@@ -62,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cisco_cardview"
                 android:layout_width="match_parent">
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -78,16 +103,42 @@
                         android:paddingTop="10dp"
                         android:contentDescription="@string/home_description"/>
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_midlab"
                         android:id="@+id/textView3"
-                        android:layout_weight="0.02"
+                        android:layout_toEndOf="@id/midlab_image"
+                        android:layout_toRightOf="@id/midlab_image"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
-                </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/midlab_details"
+                        android:layout_below="@id/textView3"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toRightOf="@id/midlab_image"
+                        android:layout_toEndOf="@id/midlab_image"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/midlab_arrow"
+                        android:contentDescription="@string/arrow_description"
+                        android:tint="@color/light_gray"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:paddingTop="15dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/arrow_down_icon"/>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -99,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/midlab_cardview"
                 android:layout_width="match_parent">
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -115,16 +166,43 @@
                         android:paddingTop="10dp"
                         android:contentDescription="@string/home_description"/>
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_labsr"
                         android:id="@+id/textView4"
-                        android:layout_weight="0.02"
+                        android:layout_toEndOf="@id/sr_image"
+                        android:layout_toRightOf="@id/sr_image"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
-                </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sr_details"
+                        android:layout_below="@id/textView4"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toRightOf="@id/sr_image"
+                        android:layout_toEndOf="@id/sr_image"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/sr_arrow"
+                        android:contentDescription="@string/arrow_description"
+                        android:tint="@color/light_gray"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:paddingTop="15dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/arrow_down_icon"/>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -136,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sr_cardview"
                 android:layout_width="match_parent">
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -153,16 +231,42 @@
                         android:contentDescription="@string/home_description"/>
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_sm14"
                         android:id="@+id/textView5"
-                        android:layout_weight="0.02"
+                        android:layout_toEndOf="@id/sm14_image"
+                        android:layout_toRightOf="@id/sm14_image"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
-                </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sm14_details"
+                        android:layout_below="@id/textView5"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toRightOf="@id/sm14_image"
+                        android:layout_toEndOf="@id/sm14_image"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/sm14_arrow"
+                        android:contentDescription="@string/arrow_description"
+                        android:tint="@color/light_gray"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:paddingTop="15dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/arrow_down_icon"/>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -174,7 +278,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sm14_cardview"
                 android:layout_width="match_parent">
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <ImageView
@@ -190,72 +294,101 @@
                         android:paddingTop="10dp"
                         android:contentDescription="@string/home_description"/>
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/sm_other"
                         android:id="@+id/textView6"
-                        android:layout_weight="0.02"
+                        android:layout_toEndOf="@id/other_image"
+                        android:layout_toRightOf="@id/other_image"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"/>
-                </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/other_details"
+                        android:layout_below="@id/textView6"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toRightOf="@id/other_image"
+                        android:layout_toEndOf="@id/other_image"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:id="@+id/other_arrow"
+                        android:contentDescription="@string/arrow_description"
+                        android:tint="@color/light_gray"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:paddingTop="15dp"
+                        android:visibility="gone"
+                        android:src="@mipmap/arrow_down_icon"/>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
-
-            <ImageView
-                android:layout_width="46dp"
-                android:layout_height="46dp"
-                android:id="@+id/total_image"
-                android:src="@mipmap/stats_icon"
-                android:tint="@color/light_green"
-                android:paddingStart="10dp"
-                android:paddingLeft="10dp"
-                android:paddingEnd="0dp"
-                android:paddingRight="0dp"
-                android:layout_below="@id/other_cardview"
-                android:paddingTop="10dp"
-                android:contentDescription="@string/stats_description"/>
-
-            <TextView
+            <TableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/sm_total"
-                android:id="@+id/textView7"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                android:paddingTop="2dp"
-                android:layout_below="@id/other_cardview"
-                android:layout_toRightOf="@id/total_image"
-                android:layout_toEndOf="@id/total_image"
-                android:textColor="@color/light_green"/>
+                android:layout_below="@id/other_cardview">
+                <TableRow>
+                    <ImageView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:id="@+id/total_image"
+                        android:src="@mipmap/stats_icon"
+                        android:tint="@color/light_green"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="10dp"
+                        android:contentDescription="@string/stats_description"/>
 
-            <ImageView
-                android:layout_width="46dp"
-                android:layout_height="46dp"
-                android:id="@+id/othertotal_image"
-                android:src="@mipmap/stats_icon"
-                android:tint="@color/light_gray"
-                android:paddingStart="10dp"
-                android:paddingLeft="10dp"
-                android:paddingEnd="0dp"
-                android:paddingRight="0dp"
-                android:layout_below="@id/total_image"
-                android:paddingTop="10dp"
-                android:contentDescription="@string/stats_description"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/sm_total"
+                        android:id="@+id/textView7"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:textStyle="bold"
+                        android:paddingTop="2dp"
+                        android:textColor="@color/light_green"/>
+                </TableRow>
+                <TableRow>
+                    <ImageView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:id="@+id/othertotal_image"
+                        android:src="@mipmap/stats_icon"
+                        android:tint="@color/light_gray"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingEnd="0dp"
+                        android:paddingRight="0dp"
+                        android:paddingTop="10dp"
+                        android:contentDescription="@string/stats_description"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/sm_othertotal"
-                android:id="@+id/textView8"
-                android:paddingTop="12dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/textView7"
-                android:layout_alignLeft="@+id/textView7" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/sm_othertotal"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/textView8"
+                        android:paddingTop="12dp"/>
+                </TableRow>
+            </TableLayout>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
