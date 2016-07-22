@@ -197,7 +197,7 @@ public class Home extends Fragment implements Resfreshable
             public void onClick(View view)
             {
                 ImageView arrow = ciscoHomeDetails.getArrow();
-                ImageView details = ciscoHomeDetails.getArrow();
+                TextView details = ciscoHomeDetails.getDetails();
                 if (!ciscoBool)
                 {
                     details.setVisibility(View.VISIBLE);
